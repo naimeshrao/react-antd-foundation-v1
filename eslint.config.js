@@ -6,8 +6,8 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import storybook from 'eslint-plugin-storybook'
 import prettier from 'eslint-config-prettier'
 import prettierPlugin from 'eslint-plugin-prettier'
-import { fileURLToPath } from 'url'
-import path from 'path'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -39,7 +39,7 @@ export default [
 
   // Main application linting
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx}', 'src/pages/**', 'src/components/**'],
 
     languageOptions: {
       parser: tsParser,
