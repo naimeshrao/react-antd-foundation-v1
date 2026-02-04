@@ -47,6 +47,9 @@
   git reset --hard
   npx prettier --write .
 
+  # ▶️ Generate React CLI
+  npm install --save-dev generate-react-cli
+  # Create File: generate-react-cli.json and add config
 ```
 
 ## ℹ️ Project Stack Overview
@@ -68,6 +71,17 @@
 - Configure your Git user settings before committing code.
 - Add a .env file in the project root for environment variables.
 - Husky ensures that code is automatically linted before every commit.
+
+## Update Files & Structure
+
+```bash
+  # ▶️ Create Router
+  # src > router > AppRouter.tsx
+  # ▶️ Create Pages & Layout
+  # src > pages > Dashboard / Auth (Login/ForgotPassword)
+  # src > components > Layout > AppLayout / AuthLayout
+  # ▶️ Next
+```
 
 ## Other Info
 

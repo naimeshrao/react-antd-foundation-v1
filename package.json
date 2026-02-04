@@ -48,6 +48,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "eslint-plugin-storybook": "^10.2.4",
+    "generate-react-cli": "^11.0.1",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "playwright": "^1.58.1",

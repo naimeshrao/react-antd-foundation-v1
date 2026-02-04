@@ -1,0 +1,11 @@
+{
+  "usesTypeScript": true,
+  "usesCssModule": false,
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": false
+    }
+  }
+}
