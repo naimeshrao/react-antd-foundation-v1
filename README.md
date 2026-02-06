@@ -46,6 +46,7 @@
   git rm --cached -r .
   git reset --hard
   npx prettier --write .
+  # npx eslint . --cache --cache-location node_modules/.cache/eslint --fix
 
   # ▶️ Generate React CLI
   npm install --save-dev generate-react-cli

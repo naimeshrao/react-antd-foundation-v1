@@ -1,8 +1,10 @@
 // import { createBrowserRouter } from 'react-router-dom'
+// import Login from '../pages/Auth/Login/Login'
+// import Dashboard from '../pages/Dashboard/Dashboard'
 
 // export const router = createBrowserRouter([
 //   {
-//     element: <AuthLayout />,
+//     element: <PublicLayout />,
 //     children: [
 //       {
 //         path: '/login',
@@ -15,11 +17,15 @@
 //     ]
 //   },
 //   {
-//     element: <AppLayout />,
+//     element: <RootLayout />,
 //     children: [
 //       {
 //         path: '/',
 //         element: <Dashboard />
+//       },
+//       {
+//         path: '*',
+//         element: <PageNotFound />
 //       }
 //     ]
 //   }
