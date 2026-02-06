@@ -1,70 +1,38 @@
-// {
-//   "compilerOptions": {
-//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-//     "target": "ES2022",
-//     "useDefineForClassFields": true,
-//     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-//     "module": "ESNext",
-//     "types": ["vite/client"],
-//     "skipLibCheck": true,
-//     // "esModuleInterop": true,
-//     // "allowSyntheticDefaultImports": true,
-//     "isolatedModules": true,
-
-//     /* Bundler mode */
-//     "moduleResolution": "bundler",
-//     "allowImportingTsExtensions": true,
-//     // "verbatimModuleSyntax": true,
-//     "moduleDetection": "force",
-//     "noEmit": true,
-//     "jsx": "react-jsx",
-
-//     /* Linting */
-//     "strict": true,
-//     "noUnusedLocals": true,
-//     "noUnusedParameters": true,
-//     "erasableSyntaxOnly": true,
-//     "noFallthroughCasesInSwitch": true,
-//     "noUncheckedSideEffectImports": true
-//   },
-//   "include": ["src", ".storybook/**/*", "vitest.shims.d.ts"],
-//   "exclude": ["node_modules"]
-// }
-
 {
   "compilerOptions": {
     /* Build output (not emitted in Vite) */
     "noEmit": true,
-
     /* Language and environment */
     "target": "ES2022",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "jsx": "react-jsx",
-
     /* Module resolution (Vite friendly) */
     "module": "ESNext",
     "moduleResolution": "bundler",
     "types": ["vite/client"],
-
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@routes/*": ["src/routes/*"],
+      "@store/*": ["src/store/*"],
+      "@config/*": ["src/config/*"]
+    },
     /* Strictness */
     "strict": true,
-
     /* Performance */
     "skipLibCheck": true,
     "isolatedModules": true,
-
     /* Better DX */
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-
     /* Code quality */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-
   "include": ["src", ".storybook/**/*", "vitest.shims.d.ts"],
-
   "exclude": ["node_modules", "dist"]
 }

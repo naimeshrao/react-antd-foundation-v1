@@ -1,14 +1,14 @@
-import { ReactNode } from 'react'
+import { Outlet } from 'react-router-dom'
 
 interface AppLayoutProps {
-  children: ReactNode
+  title?: string
 }
 
-const AppLayout = ({ children }: AppLayoutProps) => {
+const AppLayout = ({ title }: AppLayoutProps) => {
   return (
     <div>
-      <h1>App Layout</h1>
-      {children}
+      <h1>{title}</h1>
+      <Outlet />
     </div>
   )
 }

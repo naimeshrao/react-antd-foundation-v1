@@ -81,7 +81,9 @@
   # ▶️ Create Pages & Layout
   # src > pages > Dashboard / Auth (Login/ForgotPassword)
   # src > components > Layout > AppLayout / AuthLayout
-  # ▶️ Next
+  # ▶️ Fix Path Issue
+  # Set baseUrl and paths in tsconfig.app.json
+  # Add alias in vite.config.ts
 ```
 
 ## Other Info
