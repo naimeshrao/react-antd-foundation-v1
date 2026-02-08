@@ -2,10 +2,9 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { ROUTES } from '@/constants/routes'
 import ForgotPassword from '@/pages/Auth/ForgotPassword/ForgotPassword'
 import PageNotFound from '@/pages/PageNotFound/PageNotFound'
-import AuthLayout from '@/components/Layout/AuthLayout/AuthLayout'
-import AppLayout from '@/components/Layout/AppLayout/AppLayout'
 import Dashboard from '@/pages/Dashboard/Dashboard'
 import Login from '@/pages/Auth/Login/Login'
+import { AuthLayout, AppLayout } from '@/components/Layout'
 
 export const router = createBrowserRouter([
   {
