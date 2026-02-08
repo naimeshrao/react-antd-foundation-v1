@@ -122,7 +122,8 @@
   # jest.config.js in root
   # tsconfig.json > types (add)
   # package.json > scripts (add)
-  # src/setupTests.ts & __mocks__ folder in root & src > test > (testUtils.tsx)
+  # src/setupTests.ts
+  # __mocks__ folder in root & src > test > (testUtils.tsx / jest.setup.ts)
   # created sample Button.test.tsx
   # Run test 'npm run test' & 'npm run test -- Button.test.tsx'
   # Update eslint.config.js
@@ -138,6 +139,7 @@ Other Changes
 
 - App.css & index.css removed
 - Update Main/App files
+- APP_ANALYSIS.md file for improvements
 
 ## Scripts
 
