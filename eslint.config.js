@@ -69,7 +69,9 @@ export default [
         // Node globals
         module: 'readonly',
         global: 'readonly',
-        process: 'readonly'
+        process: 'readonly',
+        IntersectionObserver: 'readonly',
+        IntersectionObserverEntry: 'readonly'
       }
     },
 
@@ -150,6 +152,7 @@ export default [
         { argsIgnorePattern: '^_' }
       ],
 
+      '@typescript-eslint/no-explicit-any': 'warn',
       'prettier/prettier': 'warn'
     }
   },

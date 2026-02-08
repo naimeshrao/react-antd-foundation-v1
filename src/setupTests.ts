@@ -2,12 +2,10 @@
 import '@testing-library/jest-dom'
 import { configure } from '@testing-library/react'
 
-// Configure Testing Library
 configure({
   testIdAttribute: 'data-testid'
 })
 
-// Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation((query: string) => ({
@@ -22,25 +20,20 @@ Object.defineProperty(window, 'matchMedia', {
   }))
 })
 
-// Mock IntersectionObserver
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-global.IntersectionObserver = class IntersectionObserver {
+global.IntersectionObserver = class {
   constructor() {}
   disconnect() {}
   observe() {}
-  takeRecords() {
+  takeRecords(): IntersectionObserverEntry[] {
     return []
   }
   unobserve() {}
-} as any
+} as unknown as typeof IntersectionObserver
 
-// Suppress console errors in tests (optional - remove if you want to see all logs)
 const originalError = console.error
+
 beforeAll(() => {
-  console.error = (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ...args: any[]
-  ) => {
+  console.error = (...args: unknown[]) => {
     if (
       typeof args[0] === 'string' &&
       args[0].includes('Warning: ReactDOM.render')
