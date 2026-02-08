@@ -25,6 +25,7 @@ export default defineConfig({
       '@constants': path.resolve(dirname, './src/constants'),
       '@utils': path.resolve(dirname, './src/utils'),
       '@theme': path.resolve(dirname, './src/theme'),
+      '@i18n': path.resolve(dirname, './src/i18n'),
       '@config': path.resolve(dirname, './src/config')
     }
   },
