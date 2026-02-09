@@ -1,8 +1,6 @@
 import React from 'react'
-import { Select, Tooltip } from 'antd'
+import { Select } from 'antd'
 import { useTranslation } from 'react-i18next'
-
-const { Option } = Select
 
 const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation()
@@ -16,20 +14,18 @@ const LanguageSelector: React.FC = () => {
     fr: 'Français'
   }
 
+  const options = Object.entries(languageLabels).map(([value, label]) => ({
+    value,
+    label
+  }))
+
   return (
-    <Tooltip title="Select Language">
-      <Select
-        value={i18n.language}
-        onChange={handleChange}
-        style={{ width: 120 }}
-      >
-        {Object.entries(languageLabels).map(([code, label]) => (
-          <Option key={code} value={code}>
-            {label}
-          </Option>
-        ))}
-      </Select>
-    </Tooltip>
+    <Select
+      value={i18n.language}
+      onChange={handleChange}
+      style={{ width: 120 }}
+      options={options}
+    />
   )
 }
 

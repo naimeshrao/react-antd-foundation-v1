@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react'
 
 interface ErrorBoundaryProps {
   children: ReactNode
-  fallback?: ReactNode //Custom fallback UI
+  fallback?: ReactNode
 }
 
 interface ErrorBoundaryState {
@@ -17,12 +17,10 @@ export class ErrorBoundary extends Component<
   state: ErrorBoundaryState = { hasError: false, error: null }
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-    // Update state to show fallback UI
     return { hasError: true, error }
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    // Log error (can integrate Sentry or other logging service here)
     window.console.error('ErrorBoundary caught an error:', error, info)
   }
 

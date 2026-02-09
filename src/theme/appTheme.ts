@@ -1,17 +1,17 @@
-import { baseTheme } from './styles/base'
-import { darkColors, lightColors } from './styles/colors'
+import { designTokens } from './styles/designTokens'
+import { mainDarkColors, mainLightColors } from './styles/colors'
 import { AppTheme, ThemeMode } from './types'
 
 export const lightTheme: AppTheme = {
   mode: 'light',
-  colors: lightColors,
-  ...baseTheme
+  colors: mainLightColors,
+  ...designTokens
 }
 
 export const darkTheme: AppTheme = {
   mode: 'dark',
-  colors: darkColors,
-  ...baseTheme
+  colors: mainDarkColors,
+  ...designTokens
 }
 
 export const getTheme = (mode: ThemeMode): AppTheme =>

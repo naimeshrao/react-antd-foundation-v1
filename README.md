@@ -1,6 +1,6 @@
 # 🚀 React + TypeScript + Vite + Redux
 
-## 📌 Scratch Installation Guide
+## 👉 Scratch Installation Guide
 
 ```bash
   # ▶️ Initial Installation
@@ -84,12 +84,6 @@
 | Multi-language   | i18next (v25)                                          |
 | Code Quality     | ESLint - Flat Config (v9), Prettier (v3.8), Husky (v9) |
 
-## ⚠️ Important Notes
-
-- Configure your Git user settings before committing code.
-- Add a .env file in the project root for environment variables.
-- Husky ensures that code is automatically linted before every commit.
-
 ## Update Files & Structure
 
 ```bash
@@ -99,7 +93,8 @@
   # Add AppRouter in App.tsx
   # ▶️ Create Structure
   # src > pages
-  # src > components > (Layout / SVGs / Antd / Utilities)
+  # src > components > (Layout / Antd / Utilities)
+  # src > assets > (fonts / images / svgs)
   # ▶️ Set Alias & Base URL to Fix Path Issue
   # Set baseUrl and paths in tsconfig.app.json
   # Add alias in vite.config.ts
@@ -122,13 +117,39 @@
   # jest.config.js in root
   # tsconfig.json > types (add)
   # package.json > scripts (add)
-  # src/setupTests.ts & __mocks__ folder in root & src > test > (testUtils.tsx)
+  # src/setupTests.ts
+  # __mocks__ folder in root & src > test > (testUtils.tsx / jest.setup.ts)
   # created sample Button.test.tsx
   # Run test 'npm run test' & 'npm run test -- Button.test.tsx'
   # Update eslint.config.js
 ```
 
-## Other Info
+## Project Scripts
+
+```bash
+  npm run dev         # Start development server
+  npm run build       # Build production-ready app
+
+  npm run lint        # Run ESLint to check code
+  npm run lint:fix    # Automatically fix linting issues
+  npm run format      # Run Prettier to format all files
+  npm run clean       # Remove dist/build folders
+
+  npm run test            # Run Jest tests once
+  npm run test:watch      # Run Jest in watch mode (rerun tests on changes)
+  npm run test:coverage   # Run Jest and generate coverage report
+
+  npm run storybook         # Start Storybook dev server
+  npm run build-storybook   # Build static Storybook site
+```
+
+## ⚠️ Important Notes
+
+- Configure your Git user settings before committing code.
+- Add a .env file in the project root for environment variables.
+- Husky ensures that code is automatically linted before every commit.
+
+## 👉 Other Info
 
 TypeScript Configuration (Keep as Default)
 
@@ -138,13 +159,4 @@ Other Changes
 
 - App.css & index.css removed
 - Update Main/App files
-
-## Scripts
-
-```json
-"scripts": {
-  "lint": "eslint . --ext .ts,.tsx",
-  "lint:fix": "eslint . --ext .ts,.tsx --fix",
-  "format": "prettier --write ."
-}
-```
+- APP_ANALYSIS.md file for improvements
