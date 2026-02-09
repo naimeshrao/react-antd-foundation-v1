@@ -61,11 +61,11 @@ export const getAntdTheme = (mode: ThemeMode): ThemeConfig => ({
   components: {
     Button: {
       borderRadius: 6,
-      controlHeight: 38,
+      controlHeight: 36,
       paddingInline: 16
     },
     Input: {
-      controlHeight: 38,
+      controlHeight: 36,
       borderRadius: 6
     },
     Card: {
@@ -73,9 +73,9 @@ export const getAntdTheme = (mode: ThemeMode): ThemeConfig => ({
       padding: 16
     },
     Select: {
-      optionHeight: 36,
-      optionLineHeight: '36px',
-      optionSelectedBg: mode === 'light' ? '#000000d9' : '#ffffffd9'
+      optionHeight: 26,
+      optionLineHeight: '26px',
+      optionSelectedBg: '#fbfbfb'
     },
     Radio: { dotSize: 8 },
     Modal: {
@@ -100,3 +100,5 @@ export const getAntdTheme = (mode: ThemeMode): ThemeConfig => ({
     }
   }
 })
+
+// Usage: mode === 'light' ? '#000000' : '#ffffff' to apply color based on mode

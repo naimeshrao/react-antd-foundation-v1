@@ -2,7 +2,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { render } from '@/test/testUtils'
-import Button from './Button'
+import { Button } from './Button'
 
 describe('Button', () => {
   it('renders children correctly', () => {
