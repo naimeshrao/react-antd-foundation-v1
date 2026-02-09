@@ -7,9 +7,11 @@ import {
   Collapse,
   DatePicker,
   Dropdown,
+  Empty,
   FloatButton,
   Form,
   FormItem,
+  Image,
   Input,
   Menu,
   Modal,
@@ -22,10 +24,17 @@ import {
   Table,
   Tabs,
   Tag,
-  Tooltip
+  Tooltip,
+  Upload
 } from '@/components'
-import { Icon3dRotate, IconUser } from '@tabler/icons-react'
-import { CollapseProps, DatePickerProps, MenuProps, TabsProps } from 'antd'
+import { Icon3dRotate, IconUpload, IconUser } from '@tabler/icons-react'
+import {
+  CollapseProps,
+  DatePickerProps,
+  MenuProps,
+  TabsProps,
+  UploadProps
+} from 'antd'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -223,6 +232,19 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     }
   ]
 
+  const props: UploadProps = {
+    name: 'file',
+    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
+    headers: {
+      authorization: 'authorization-text'
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList)
+      }
+    }
+  }
+
   return (
     <div>
       <h1>{message}</h1>
@@ -331,6 +353,18 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       <Avatar size={64} icon={<IconUser />} />
       <br />
       <FloatButton shape="circle" type="primary" icon={<Icon3dRotate />} />
+      <br />
+      <Upload {...props}>
+        <Button icon={<IconUpload />}>Click to Upload</Button>
+      </Upload>
+      <br />
+      <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No data found" />
+      <br />
+      <Image
+        width={200}
+        alt="basic"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      />
     </div>
   )
 }
