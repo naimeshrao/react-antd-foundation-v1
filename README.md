@@ -99,7 +99,8 @@
   # Add AppRouter in App.tsx
   # ▶️ Create Structure
   # src > pages
-  # src > components > (Layout / SVGs / Antd / Utilities)
+  # src > components > (Layout / Antd / Utilities)
+  # src > assets > (fonts / images / svgs)
   # ▶️ Set Alias & Base URL to Fix Path Issue
   # Set baseUrl and paths in tsconfig.app.json
   # Add alias in vite.config.ts

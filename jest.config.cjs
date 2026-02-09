@@ -1,20 +1,13 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-
   roots: ['<rootDir>/src'],
   testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-
   setupFilesAfterEnv: ['<rootDir>/src/test/jest.setup.ts'],
-
   moduleNameMapper: {
-    // CSS imports
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-
-    // Static assets
-    '\\.(jpg|jpeg|png|gif|webp|svg|avif)$': '<rootDir>/__mocks__/fileMock.js',
-
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy', // CSS imports
+    '\\.(jpg|jpeg|png|gif|webp|svg|avif)$': '<rootDir>/__mocks__/fileMock.js', // Static assets
     // Path alias support
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
