@@ -1,5 +1,6 @@
 import {
   Alert,
+  AppNotification,
   Avatar,
   Button,
   Card,
@@ -254,8 +255,16 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     }
   }
 
+  const showNotification = () => {
+    AppNotification.success({
+      message: 'Saved Successfully',
+      description: 'Your data has been updated.'
+    })
+  }
+
   return (
     <div>
+      <Button onClick={showNotification}>Show Notification</Button>
       <h1>{message}</h1>
       <p>{t('Welcome')}</p>
       <Button type="primary" size="large">
