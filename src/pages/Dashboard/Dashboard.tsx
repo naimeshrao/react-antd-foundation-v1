@@ -20,6 +20,7 @@ import {
   Select,
   Skeleton,
   Spin,
+  Statistic,
   Switch,
   Table,
   Tabs,
@@ -27,11 +28,19 @@ import {
   Tooltip,
   Upload
 } from '@/components'
-import { Icon3dRotate, IconUpload, IconUser } from '@tabler/icons-react'
 import {
+  Icon3dRotate,
+  IconArrowDown,
+  IconArrowUp,
+  IconUpload,
+  IconUser
+} from '@tabler/icons-react'
+import {
+  Col,
   CollapseProps,
   DatePickerProps,
   MenuProps,
+  Row,
   TabsProps,
   UploadProps
 } from 'antd'
@@ -365,6 +374,43 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         alt="basic"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       />
+      <br />
+      <Row gutter={16}>
+        <Col span={12}>
+          <Card variant="borderless">
+            <Statistic
+              title="Active"
+              value={11.28}
+              precision={2}
+              prefix={<IconArrowUp />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+        <Col span={12}>
+          <Card variant="borderless">
+            <Statistic
+              title="Idle"
+              value={9.3}
+              precision={2}
+              prefix={<IconArrowDown />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+      </Row>
+      <br />
+      <Row gutter={[24, 16]}>
+        <Col xs={24} lg={{ flex: 'none' }}>
+          Auto Flex Col LG
+        </Col>
+        <Col xs={24} md={24} lg="auto" flex="0 0 auto">
+          <Button>Click Me</Button>
+        </Col>
+        <Col xs={24} md={24} lg={24} flex="1">
+          <Input placeholder="Type here" />
+        </Col>
+      </Row>
     </div>
   )
 }

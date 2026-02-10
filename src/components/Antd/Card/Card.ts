@@ -25,7 +25,7 @@ export const Card = styled(AntdCard)<CardProps>`
       case 'default':
       default:
         return `
-          background-color: blue;
+          background-color: white;
         `
     }
   }}
