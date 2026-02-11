@@ -58,8 +58,8 @@ const cardStyles = {
   `
 }
 
-export const Card = styled(AntdCard)<CardProps>`
-  border-radius: 8px;
-
+export const Card = styled(AntdCard).withConfig({
+  shouldForwardProp: (prop) => prop !== 'cardType'
+})<CardProps>`
   ${({ cardType = 'default' }) => cardStyles[cardType]}
 `

@@ -34,5 +34,3 @@ export const designTokens = {
     slow: 'all 0.5s ease-in-out'
   }
 }
-
-// Usage: ${({ theme }) => theme.spacing.lg}; // ${({ theme }) => theme.borderRadius.md};

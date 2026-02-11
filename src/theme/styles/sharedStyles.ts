@@ -1,4 +1,20 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+
+// Flex Helper | ${flex('row', '16px', 'center', 'space-between', 'wrap')};
+export const flex = (
+  direction?: string,
+  gap?: string,
+  align?: string,
+  justify?: string,
+  wrap?: string
+) => css`
+  display: flex;
+  ${direction ? `flex-direction: ${direction};` : ''}
+  ${gap ? `gap: ${gap};` : ''}
+  ${align ? `align-items: ${align};` : ''}
+  ${justify ? `justify-content: ${justify};` : ''}
+  ${wrap ? `flex-wrap: ${wrap};` : ''}
+`
 
 // Loader & Spin Animation
 export const spinAnimation = keyframes`
@@ -17,7 +33,7 @@ export const DivButton = styled.button`
   box-shadow: none;
   cursor: pointer;
 
-  // ===== User Accessibility =====
+  // User Accessibility
   &:focus-visible {
     outline: 2px solid;
   }

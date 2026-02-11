@@ -64,5 +64,3 @@ export const mainDarkColors = {
   'info-medium': '#0ea5e9',
   'info-light': '#cffafe'
 }
-
-// Usage: ${({ theme }) => theme.colors['primary-500']};

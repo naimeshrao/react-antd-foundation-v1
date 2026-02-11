@@ -17,7 +17,3 @@ export const media = {
   between: (min: keyof typeof breakpoints, max: keyof typeof breakpoints) =>
     `@media (min-width: ${breakpoints[min]}px) and (max-width: ${breakpoints[max] - 0.02}px)`
 }
-
-// Usage:
-// import { media } from '@/utils/breakpoints';
-// ${media.below('xl')} {} // ${media.above('lg')} {} // ${media.between('sm', 'lg')} {}
