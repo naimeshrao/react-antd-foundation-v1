@@ -13,7 +13,12 @@ export const Tabs = styled(AntdTabs)`
           }
         }
 
+        // Active State
         &.ant-tabs-tab-active {
+        }
+
+        // Disabled State
+        &.ant-tabs-tab-disabled {
         }
       }
 
@@ -26,6 +31,16 @@ export const Tabs = styled(AntdTabs)`
   // ===== Tab Content =====
   .ant-tabs-content-holder {
     .ant-tabs-content {
+      .ant-tabs-tabpane {
+      }
     }
+  }
+
+  // ===== Tab Card =====
+  &.ant-tabs-card {
+  }
+
+  // ===== Tab Left Panel =====
+  &.ant-tabs-left {
   }
 `

@@ -112,4 +112,92 @@ export const GlobalStyles = createGlobalStyle`
     white-space: nowrap;
     width: 1px;
   }
+
+  /* === AntD Tooltip === */
+  .ant-tooltip{
+    .ant-tooltip-container{}
+    .ant-tooltip-arrow{
+      &:before{}
+      &:after{}
+    }
+  }
+
+  /* === AntD Spin (Loader) === */
+  .ant-spin-fullscreen{}
+  .ant-spin-nested-loading{}
+
+  /* === AntD Dropdown === */
+  .ant-dropdown{
+    .ant-dropdown-menu{
+      .ant-dropdown-menu-item{}
+    }
+  }
+
+  /* === AntD Select Dropdown === */
+  .ant-select-dropdown{
+    min-width: 70px;
+
+    .ant-select-item-option{
+      &.ant-select-item-option-active{}
+      &.ant-select-item-option-selected{}
+      &.ant-select-item-option-disabled{}
+    }
+  }
+
+  /* === App Date Picker Dropdown === */
+  .ant-picker-dropdown{
+    .ant-picker-panel-layout{
+      .ant-picker-header{
+        button{}
+
+        .ant-picker-header-view{}
+      }
+
+      .ant-picker-body{
+        .ant-picker-content{
+          // Header & Body
+          th, td{
+
+          }
+
+          // Header only
+          thead{
+            th{}
+          }
+        }
+      }
+    }
+  }
+
+  /* === AntD Message === */
+  .ant-message{
+    .ant-message-notice-wrapper{
+      .ant-message-notice{
+        &.ant-message-notice-success{}
+        &.ant-message-notice-error{}
+        &.ant-message-notice-warning{}
+
+        .ant-message-notice-content{}
+      }
+    }
+  }
+
+  /* === AntD Notification === */
+  .ant-notification{
+    .ant-notification-notice-wrapper{
+      .ant-notification-notice{
+        &.ant-notification-notice-success{}
+        &.ant-notification-notice-error{}
+        &.ant-notification-notice-warning{}
+        &.ant-notification-notice-info{}
+
+        .ant-notification-notice-content{
+          .ant-notification-notice-title{}
+          .ant-notification-notice-description{}
+        }
+
+        .ant-notification-notice-close{}
+      }
+    }
+  }
 `

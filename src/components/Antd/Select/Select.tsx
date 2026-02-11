@@ -46,7 +46,7 @@ const BaseSelect = styled(AntdSelect)`
   }
 ` as typeof AntdSelect
 
-function Select<ValueType = any>(props: AntdSelectProps<ValueType>) {
+function Select<ValueType = unknown>(props: AntdSelectProps<ValueType>) {
   return <BaseSelect {...props} />
 }
 

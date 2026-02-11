@@ -26,13 +26,13 @@ import {
   Table,
   Tabs,
   Tag,
-  Tooltip,
   Upload
 } from '@/components'
 import {
   Icon3dRotate,
   IconArrowDown,
   IconArrowUp,
+  IconBrandTwitter,
   IconUpload,
   IconUser
 } from '@tabler/icons-react'
@@ -40,9 +40,11 @@ import {
   Col,
   CollapseProps,
   DatePickerProps,
+  Flex,
   MenuProps,
   Row,
   TabsProps,
+  Tooltip,
   UploadProps
 } from 'antd'
 import { useState } from 'react'
@@ -319,7 +321,15 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         <TextArea rows={4} />
       </Form>
       <br />
-      <Tag>Tag 1</Tag>
+      <Flex gap={20}>
+        <Tag color="default" closeIcon icon={<IconBrandTwitter />}>
+          Default
+        </Tag>
+        <Tag color="success">Success</Tag>
+        <Tag color="error">Error</Tag>
+        <Tag color="warning">Warning</Tag>
+        <Tag color="processing">Processing</Tag>
+      </Flex>
       <br />
       <Tabs defaultActiveKey="1" items={itemsTabs} onChange={onChangeTabs} />
       <br />
@@ -359,9 +369,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         onChange={onChangeCol}
       />
       <br />
-      <Card title="Default Card" cardType="default">
-        This is the default card content.
-      </Card>
+      <Card cardType="default">This is the default card content.</Card>
       <Card title="Form Card" cardType="form">
         This is an outlined card content.
       </Card>

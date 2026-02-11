@@ -53,6 +53,7 @@ export const Button = styled(AntdButton)`
 
       svg {
         margin: auto;
+        display: block;
       }
     }
 
