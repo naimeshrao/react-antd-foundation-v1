@@ -1,8 +1,9 @@
-import { Select as AntdSelect } from 'antd'
-import type { SelectProps as AntdSelectProps } from 'antd'
+import { IconArrowDown } from '@tabler/icons-react'
+import { Select as AntdSelect, SelectProps } from 'antd'
+
 import styled from 'styled-components'
 
-const BaseSelect = styled(AntdSelect)`
+const SelectStyled = styled(AntdSelect)`
   width: 100%;
 
   // ===== Base Select =====
@@ -44,10 +45,13 @@ const BaseSelect = styled(AntdSelect)`
   // ===== Multiple Select =====
   &.ant-select-multiple {
   }
-` as typeof AntdSelect
+`
 
-function Select<ValueType = unknown>(props: AntdSelectProps<ValueType>) {
-  return <BaseSelect {...props} />
+export function Select({
+  suffixIcon = <IconArrowDown />,
+  ...props
+}: SelectProps) {
+  return <SelectStyled {...props} suffixIcon={suffixIcon} />
 }
 
 export default Select

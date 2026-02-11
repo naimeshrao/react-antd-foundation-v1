@@ -1,4 +1,4 @@
-# 🚀 React + TypeScript + Vite + Redux
+# 🚀 React + TS + Vite (Antd Design System)
 
 ## 👉 Scratch Installation Guide
 
