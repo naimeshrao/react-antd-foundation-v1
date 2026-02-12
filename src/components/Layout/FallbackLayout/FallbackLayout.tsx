@@ -1,15 +1,13 @@
 import { Outlet } from 'react-router-dom'
+import { FallbackInner, FallbackWrapper } from './FallbackLayout.style'
 
-interface FallbackLayoutProps {
-  title?: string
-}
-
-const FallbackLayout = ({ title }: FallbackLayoutProps) => {
+const FallbackLayout = () => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <Outlet />
-    </div>
+    <FallbackWrapper>
+      <FallbackInner>
+        <Outlet />
+      </FallbackInner>
+    </FallbackWrapper>
   )
 }
 

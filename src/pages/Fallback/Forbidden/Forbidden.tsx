@@ -1,13 +1,16 @@
-interface ForbiddenProps {
-  message?: string
-}
+import { Button, H1, TextXL } from '@/components'
+import { ErrorBox } from '../Fallback.style'
 
 // User is logged in but does not have permission
-const Forbidden = ({ message = 'Error 403' }: ForbiddenProps) => {
+const Forbidden = () => {
   return (
-    <div>
-      <h1>{message}</h1>
-    </div>
+    <ErrorBox>
+      <H1 color="primary" weight={700}>
+        Error 403
+      </H1>
+      <TextXL color="dark">Access Denied</TextXL>
+      <Button>Homepage</Button>
+    </ErrorBox>
   )
 }
 

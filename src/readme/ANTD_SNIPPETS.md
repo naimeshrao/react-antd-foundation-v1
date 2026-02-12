@@ -41,7 +41,7 @@
 <Divider>Login</Divider>
 ```
 
-## Typography
+## Antd Typography
 
 ```tsx
 <Title>H1 Heading</Title>                   // H1 Tag Heading
@@ -71,6 +71,24 @@
     suffix: editableStrWithSuffixSuffixPart,
   }}
 />
+```
+
+## Theme Typography
+
+```tsx
+// Heading Tags <h1> to <h5>
+<H1>H1 - Sample Title</H1>
+// Text types
+<TextXL>Extra Large</TextXL>
+<TextL>Large</TextL>
+<TextM>Medium</TextM>
+<TextS>Small</TextS>
+<TextXS>Extra Small</TextXS>
+// Prop Options:
+// color    : primary | dark | muted | inherit (default)
+// weight   : 300 | 400 (default) | 500 | 600 | 700 | 800
+// display  : block (default) | inline-block
+// mb       : 0 (default) | any number (margin-bottom)
 ```
 
 ## Modals (Common)

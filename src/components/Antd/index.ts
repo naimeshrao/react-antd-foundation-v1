@@ -21,7 +21,6 @@ export * from './Avatar/Avatar'
 export * from './FloatButton/FloatButton'
 export * from './Upload/Upload'
 export * from './Empty/Empty'
-export * from './Image/Image'
 export * from './Statistic/Statistic'
 
 export { default as Select } from './Select/Select'

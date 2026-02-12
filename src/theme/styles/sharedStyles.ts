@@ -16,6 +16,12 @@ export const flex = (
   ${wrap ? `flex-wrap: ${wrap};` : ''}
 `
 
+// Fixed Width (Responsive)
+export const fixedWidth = (width?: number | string) => css`
+  ${width ? `width: ${typeof width === 'number' ? `${width}px` : width};` : ''}
+  max-width: 100%;
+`
+
 // Loader & Spin Animation
 export const spinAnimation = keyframes`
   0% {

@@ -17,7 +17,7 @@ const cardStyles = {
       padding: 8px;
     }
     .ant-card-body {
-      padding: 8px;
+      padding: 0;
     }
   `,
 

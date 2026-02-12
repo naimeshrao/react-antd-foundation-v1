@@ -1,15 +1,16 @@
-interface ServerErrorProps {
-  message?: string
-}
+import { Button, H1, TextXL } from '@/components'
+import { ErrorBox } from '../Fallback.style'
 
 // Uage: Backend crashes | API fails unexpectedly
-const ServerError = ({
-  message = '500 Internal Server Error'
-}: ServerErrorProps) => {
+const ServerError = () => {
   return (
-    <div>
-      <h1>{message}</h1>
-    </div>
+    <ErrorBox>
+      <H1 color="primary" weight={700}>
+        Error 500
+      </H1>
+      <TextXL color="dark">Internal Server Error</TextXL>
+      <Button>Homepage</Button>
+    </ErrorBox>
   )
 }
 

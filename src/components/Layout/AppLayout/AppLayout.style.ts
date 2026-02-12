@@ -7,9 +7,9 @@ const { Content } = Layout
 
 export const AppLayoutWrap = styled(Layout)`
   width: 100%;
-  overflow: hidden;
-  padding: 0;
   height: 100vh;
+  padding: 0;
+  overflow: hidden;
 
   // Mobile Version
   ${media.below('lg')} {

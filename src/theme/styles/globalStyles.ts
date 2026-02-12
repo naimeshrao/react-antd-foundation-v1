@@ -36,6 +36,10 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 20px;
   }
 
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+
   img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
@@ -111,6 +115,11 @@ export const GlobalStyles = createGlobalStyle`
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+
+  /* === AntD Typography === */
+  div{
+    &.ant-typography{margin: 0;}
   }
 
   /* === AntD Tooltip === */

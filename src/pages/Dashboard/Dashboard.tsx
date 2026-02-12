@@ -13,9 +13,12 @@ import {
   FloatButton,
   Form,
   FormItem,
-  Image,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
   Input,
-  Menu,
   Modal,
   Pagination,
   Radio,
@@ -27,6 +30,11 @@ import {
   Table,
   Tabs,
   Tag,
+  TextL,
+  TextM,
+  TextS,
+  TextXL,
+  TextXS,
   Upload
 } from '@/components'
 import {
@@ -54,73 +62,6 @@ import { useTranslation } from 'react-i18next'
 interface DashboardProps {
   message?: string
 }
-
-type MenuItem = Required<MenuProps>['items'][number]
-
-const itemsSideMenu: MenuItem[] = [
-  {
-    key: 'sub1',
-    label: 'Navigation One',
-    children: [
-      {
-        key: 'g1',
-        label: 'Item 1',
-        type: 'group',
-        children: [
-          { key: '1', label: 'Option 1' },
-          { key: '2', label: 'Option 2' }
-        ]
-      },
-      {
-        key: 'g2',
-        label: 'Item 2',
-        type: 'group',
-        children: [
-          { key: '3', label: 'Option 3' },
-          { key: '4', label: 'Option 4' }
-        ]
-      }
-    ]
-  },
-  {
-    key: 'sub2',
-    label: 'Navigation Two',
-    children: [
-      { key: '5', label: 'Option 5' },
-      { key: '6', label: 'Option 6' },
-      {
-        key: 'sub3',
-        label: 'Submenu',
-        children: [
-          { key: '7', label: 'Option 7' },
-          { key: '8', label: 'Option 8' }
-        ]
-      }
-    ]
-  },
-  {
-    type: 'divider'
-  },
-  {
-    key: 'sub4',
-    label: 'Navigation Three',
-    children: [
-      { key: '9', label: 'Option 9' },
-      { key: '10', label: 'Option 10' },
-      { key: '11', label: 'Option 11' },
-      { key: '12', label: 'Option 12' }
-    ]
-  },
-  {
-    key: 'grp',
-    label: 'Group',
-    type: 'group',
-    children: [
-      { key: '13', label: 'Option 13' },
-      { key: '14', label: 'Option 14' }
-    ]
-  }
-]
 
 const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
   const { t } = useTranslation('account')
@@ -213,10 +154,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
 
   const handleCancel = () => {
     setIsModalOpen(false)
-  }
-
-  const onClickMenu: MenuProps['onClick'] = (e) => {
-    console.log('click ', e)
   }
 
   const onChangeDP: DatePickerProps['onChange'] = (date, dateString) => {
@@ -365,15 +302,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         <p>Some contents...</p>
       </Modal>
       <br />
-      <Menu
-        onClick={onClickMenu}
-        style={{ width: 256 }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        items={itemsSideMenu}
-      />
-      <br />
       <DatePicker onChange={onChangeDP} />
       <br />
       <Collapse
@@ -402,12 +330,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       </Upload>
       <br />
       <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No data found" />
-      <br />
-      <Image
-        width={200}
-        alt="basic"
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      />
       <br />
       <Row gutter={16}>
         <Col span={12}>
@@ -458,6 +380,36 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       >
         Are you sure you want to delete?
       </ConfirmModal>
+
+      <Row gutter={[24, 16]}>
+        <Col xs={24} lg={6}>
+          <H1>H1 - Sample Title</H1>
+          <H2>H2 - Sample Title</H2>
+          <H3>H3 - Sample Title</H3>
+          <H4>H4 - Sample Title</H4>
+          <H5>H5 - Sample Title</H5>
+        </Col>
+        <Col xs={24} lg={8}>
+          <TextXL>TextXL - Sample body text example</TextXL>
+          <TextL>TextL - Sample body text example</TextL>
+          <TextM>TextM - Sample body text example</TextM>
+          <TextS>TextS - Sample body text example</TextS>
+          <TextXS>TextXS - Sample body text example</TextXS>
+        </Col>
+        <Col xs={24} lg={5}>
+          <TextXL color="primary">Color: primary</TextXL>
+          <TextXL color="dark">Color: dark</TextXL>
+          <TextXL color="muted">Color: muted</TextXL>
+        </Col>
+        <Col xs={24} lg={5}>
+          <TextXL weight={300}>Weight: 300</TextXL>
+          <TextXL weight={400}>Weight: 400 (Default)</TextXL>
+          <TextXL weight={500}>Weight: 500</TextXL>
+          <TextXL weight={600}>Weight: 600</TextXL>
+          <TextXL weight={700}>Weight: 700</TextXL>
+          <TextXL weight={800}>Weight: 800</TextXL>
+        </Col>
+      </Row>
     </div>
   )
 }
