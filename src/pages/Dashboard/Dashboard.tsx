@@ -11,7 +11,7 @@ import {
   Dropdown,
   Empty,
   FloatButton,
-  Form,
+  FloatingInput,
   FormItem,
   H1,
   H2,
@@ -50,6 +50,7 @@ import {
   CollapseProps,
   DatePickerProps,
   Flex,
+  Form,
   MenuProps,
   Row,
   TabsProps,
@@ -213,6 +214,8 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
   const handleCMCancel = () => {
     setOpenCM(false)
   }
+
+  const [form] = Form.useForm()
 
   return (
     <div>
@@ -410,6 +413,30 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           <TextXL weight={800}>Weight: 800</TextXL>
         </Col>
       </Row>
+
+      <Form form={form} layout="vertical" requiredMark={false}>
+        <FloatingInput
+          name="Name"
+          label="Name"
+          required
+          rules={[{ required: true, message: 'Name is required' }]}
+        >
+          <Input allowClear />
+        </FloatingInput>
+
+        <FloatingInput
+          mb={0}
+          label="Gender"
+          name="Gender"
+          required
+          rules={[
+            { required: true, message: 'Gender is required' },
+            { type: 'email', message: 'Enter valid Gender' }
+          ]}
+        >
+          <Input allowClear />
+        </FloatingInput>
+      </Form>
     </div>
   )
 }

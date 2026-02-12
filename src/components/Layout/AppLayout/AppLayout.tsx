@@ -1,4 +1,3 @@
-import { AppHeader, Sidebar } from '@/components/Custom'
 import { SIDEBAR_STATE } from '@/constants/storage'
 import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
@@ -8,7 +7,9 @@ import {
   AppContentWrap,
   AppLayoutWrap
 } from './AppLayout.style'
-import { SiderBackdrop } from '@/components/Custom/Sidebar/Sidebar.style'
+import { SiderBackdrop } from '@/components/Layout/AppLayout/Sidebar/Sidebar.style'
+import Sidebar from './Sidebar/Sidebar'
+import AppHeader from './AppHeader/AppHeader'
 
 const AppLayout = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
