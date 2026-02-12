@@ -20,7 +20,7 @@ export function AppHeader({ onSidebarToggle }: AppHeaderProps) {
         onClick={onSidebarToggle}
       />
 
-      <Flex>
+      <Flex align="center" gap={12}>
         <ThemeToggle />
         <LanguageSelector />
       </Flex>

@@ -1,60 +1,59 @@
-import { Form, type FormItemProps } from 'antd'
-import { ReactElement } from 'react'
-import { FloatingInputStyle } from './FloatingInput.style'
+import { Form } from 'antd'
+import { useState, cloneElement, ReactElement } from 'react'
+import type { FormItemProps } from 'antd'
 
-type NamePath = FormItemProps['name']
+type ChildProps = {
+  onFocus?: (...args: any[]) => void
+  onBlur?: (...args: any[]) => void
+  onChange?: (...args: any[]) => void
+}
 
-interface FloatingInputProps extends Omit<
-  FormItemProps,
-  'label' | 'required' | 'name'
-> {
-  name: NamePath
-  children: ReactElement
+interface FloatingInputProps extends FormItemProps {
   label: string
-  required?: boolean
-  mb?: number
-  ghost?: boolean
+  children: ReactElement<ChildProps>
 }
 
 export function FloatingInput({
-  children,
   label,
-  required = false,
-  className,
-  mb,
-  ghost = false,
-  name,
+  children,
   ...formItemProps
 }: FloatingInputProps) {
-  const form = Form.useFormInstance()
-  const value = Form.useWatch(name, form)
+  const [isFocused, setIsFocused] = useState(false)
+  const [isFilled, setIsFilled] = useState(false)
 
-  const isFilled =
-    value !== undefined &&
-    value !== null &&
-    !(Array.isArray(value) && value.length === 0) &&
-    value !== ''
+  const clonedChild = cloneElement(children, {
+    onFocus: (e: any) => {
+      setIsFocused(true)
+      children.props.onFocus?.(e)
+    },
+    onBlur: (e: any) => {
+      setIsFocused(false)
+      children.props.onBlur?.(e)
+    },
+    onChange: (value: any, option?: any) => {
+      let actualValue = value
+      if (value?.target) {
+        actualValue = value.target.value
+      }
+      if (Array.isArray(actualValue)) {
+        setIsFilled(actualValue.length > 0)
+      } else {
+        setIsFilled(!!actualValue)
+      }
+      children.props.onChange?.(value, option)
+    }
+  })
 
   return (
-    <FloatingInputStyle
-      {...formItemProps}
-      name={name}
-      required={required}
-      $mb={mb}
-      className={`float-input ${ghost ? 'ghost' : ''} ${
-        className || ''
-      } ${isFilled ? 'filled' : ''}`}
-    >
-      <div className="float-input-wrap">
-        {children}
-
-        <label className="float-input-label">
-          {label}
-          {required && <span className="float-input-required">*</span>}
-        </label>
+    <Form.Item {...formItemProps}>
+      <div
+        className={`floating-input ${
+          isFocused ? 'is-focused' : ''
+        } ${isFilled ? 'is-filled' : ''}`}
+      >
+        {clonedChild}
+        <label>{label}</label>
       </div>
-    </FloatingInputStyle>
+    </Form.Item>
   )
 }
-
-export default FloatingInput

@@ -242,16 +242,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       <br />
       <Radio value="A">Option A</Radio>
       <br />
-      <Select
-        defaultValue="lucy"
-        onChange={handleChange}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-          { value: 'disabled', label: 'Disabled', disabled: true }
-        ]}
-      />
+
       <br />
       <Skeleton active paragraph={{ rows: 4 }} />
       <br />
@@ -425,7 +416,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         </FloatingInput>
 
         <FloatingInput
-          mb={0}
           label="Gender"
           name="Gender"
           required
@@ -434,7 +424,15 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
             { type: 'email', message: 'Enter valid Gender' }
           ]}
         >
-          <Input allowClear />
+          <Select
+            onChange={handleChange}
+            options={[
+              { value: 'jack', label: 'Jack' },
+              { value: 'lucy', label: 'Lucy' },
+              { value: 'Yiminghe', label: 'yiminghe' },
+              { value: 'disabled', label: 'Disabled', disabled: true }
+            ]}
+          />
         </FloatingInput>
       </Form>
     </div>
