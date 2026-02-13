@@ -1,16 +1,17 @@
-import { AppHeader, Sidebar } from '@/components/Custom'
-import { LanguageSelector, ThemeToggle } from '@/components/Utilities'
-import { SIDEBAR_STATE } from '@/constants/theme'
+import { SIDEBAR_STATE } from '@/constants/storage'
 import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { AppContainer, AppContentWrap, AppLayoutWrap } from './AppLayout.style'
-import { SiderBackdrop } from '@/components/Custom/Sidebar/Sidebar.style'
+import {
+  AppContainer,
+  AppContent,
+  AppContentWrap,
+  AppLayoutWrap
+} from './AppLayout.style'
+import { SiderBackdrop } from '@/components/Layout/AppLayout/Sidebar/Sidebar.style'
+import Sidebar from './Sidebar/Sidebar'
+import AppHeader from './AppHeader/AppHeader'
 
-interface AppLayoutProps {
-  title?: string
-}
-
-const AppLayout = ({ title }: AppLayoutProps) => {
+const AppLayout = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
 
   useEffect(() => {
@@ -34,11 +35,9 @@ const AppLayout = ({ title }: AppLayoutProps) => {
       <AppContentWrap>
         <AppHeader onSidebarToggle={handleSidebarToggle} />
         <AppContainer>
-          <div>
-            <ThemeToggle />
-            <LanguageSelector />
+          <AppContent className="app-content">
             <Outlet />
-          </div>
+          </AppContent>
         </AppContainer>
       </AppContentWrap>
     </AppLayoutWrap>

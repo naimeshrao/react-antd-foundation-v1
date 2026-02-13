@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     /* No build output – used only for type checking */
     "noEmit": true,
     /* Node environment */

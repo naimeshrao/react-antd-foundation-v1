@@ -1,3 +1,10 @@
+import {
+  InputStyle,
+  InputStyleError,
+  InputStyleFocused,
+  InputStyleHover,
+  SingleLineInput
+} from '@/theme/styles/sharedStyles'
 import { IconArrowDown } from '@tabler/icons-react'
 import { Select as AntdSelect, SelectProps } from 'antd'
 
@@ -8,6 +15,19 @@ const SelectStyled = styled(AntdSelect)`
 
   // ===== Base Select =====
   &.ant-select {
+    ${InputStyle};
+    ${SingleLineInput};
+    padding: 0 14px;
+
+    &:not(.ant-select-disabled):hover {
+      ${InputStyleHover};
+    }
+
+    &.ant-select-focused,
+    &.ant-select-open {
+      ${InputStyleFocused};
+    }
+
     .ant-select-content {
       .ant-select-input {
       }
@@ -34,7 +54,8 @@ const SelectStyled = styled(AntdSelect)`
     }
 
     // Error State
-    &.ant-select-status-error {
+    &.ant-select-status-error:not(.ant-select-disabled) {
+      ${InputStyleError};
     }
   }
 

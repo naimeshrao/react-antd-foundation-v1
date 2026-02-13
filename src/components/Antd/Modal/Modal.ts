@@ -1,3 +1,4 @@
+import { flex } from '@/theme/styles/sharedStyles'
 import { Modal as AntdModal } from 'antd'
 import styled from 'styled-components'
 
@@ -30,9 +31,7 @@ export const Modal = styled(AntdModal)`
 
     // ===== Modal Footer =====
     .ant-modal-footer {
-      display: flex;
-      justify-content: end;
-      gap: 12px;
+      ${flex('row', '16px', 'center', 'end')};
       margin-top: 24px;
 
       .ant-btn {
@@ -40,5 +39,14 @@ export const Modal = styled(AntdModal)`
         }
       }
     }
+  }
+`
+
+// Confirmation Common Modal
+export const ConfirmModalWrap = styled(Modal)`
+  // ===== Modal Footer =====
+  .modal-footer {
+    ${flex('row', '16px', 'center', 'end')};
+    width: 100%;
   }
 `

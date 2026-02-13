@@ -3,7 +3,7 @@ import { ConfigProvider } from 'antd'
 import { ThemeProvider } from 'styled-components'
 import { getAntdTheme } from './antdTokens'
 import { ThemeMode, AppTheme } from './types'
-import { DEFAULT_THEME, THEME_STORAGE_KEY } from '@/constants/theme'
+import { DEFAULT_THEME, THEME_STORAGE_KEY } from '@/constants/storage'
 import { getTheme } from './appTheme'
 
 interface ThemeContextProps {

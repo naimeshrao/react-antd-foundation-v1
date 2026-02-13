@@ -1,12 +1,14 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { ROUTES } from '@/constants/routes'
+import { AuthLayout, AppLayout, FallbackLayout } from '@/components/Layout'
 import ForgotPassword from '@/pages/Auth/ForgotPassword/ForgotPassword'
-import PageNotFound from '@/pages/PageNotFound/PageNotFound'
-import Dashboard from '@/pages/Dashboard/Dashboard'
 import Login from '@/pages/Auth/Login/Login'
-import { AuthLayout, AppLayout } from '@/components/Layout'
+import Dashboard from '@/pages/Dashboard/Dashboard'
+import PageNotFound from '@/pages/Fallback/PageNotFound/PageNotFound'
+import { ProtectedLayout } from './ProtectedRoute'
 
 export const router = createBrowserRouter([
+  // Public Routes
   {
     element: <AuthLayout />,
     children: [
@@ -14,12 +16,27 @@ export const router = createBrowserRouter([
       { path: ROUTES.AUTH.FORGOT_PASSWORD, element: <ForgotPassword /> }
     ]
   },
+
+  // Protected Routes
   {
-    element: <AppLayout />,
+    element: <ProtectedLayout />,
     children: [
-      { path: ROUTES.COMMON.HOME, element: <Dashboard /> },
-      { path: ROUTES.COMMON.NOT_FOUND, element: <PageNotFound /> },
-      { path: '*', element: <Navigate to={ROUTES.COMMON.NOT_FOUND} /> }
+      {
+        element: <AppLayout />,
+        children: [{ path: ROUTES.COMMON.HOME, element: <Dashboard /> }]
+      },
+
+      // Fallback Pages (Errors)
+      {
+        element: <FallbackLayout />,
+        children: [
+          { path: ROUTES.COMMON.NOT_FOUND, element: <PageNotFound /> },
+          {
+            path: '*',
+            element: <Navigate to={ROUTES.COMMON.NOT_FOUND} replace />
+          }
+        ]
+      }
     ]
   }
 ])

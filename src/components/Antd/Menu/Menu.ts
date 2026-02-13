@@ -6,6 +6,10 @@ import styled from 'styled-components'
 export const Menu = styled(AntdMenu)`
   // ===== Sidebar Menu =====
   &.sider-menu {
+    &.ant-menu-inline {
+      border: none;
+    }
+
     // Items & Sub Items
     .ant-menu-item,
     .ant-menu-submenu .ant-menu-submenu-title {
@@ -21,7 +25,7 @@ export const Menu = styled(AntdMenu)`
       }
 
       &.ant-menu-item-selected {
-        background-color: black;
+        background-color: blue;
         color: white;
       }
 

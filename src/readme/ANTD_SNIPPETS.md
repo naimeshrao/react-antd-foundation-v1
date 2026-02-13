@@ -41,7 +41,7 @@
 <Divider>Login</Divider>
 ```
 
-## Typography
+## Antd Typography
 
 ```tsx
 <Title>H1 Heading</Title>                   // H1 Tag Heading
@@ -73,15 +73,38 @@
 />
 ```
 
-## Anchor
+## Theme Typography
 
 ```tsx
-<Anchor>
-  <Link href="#section1" title="Section 1" />
-  <Link href="#section2" title="Section 2" />
-</Anchor>
+// Heading Tags <h1> to <h5>
+<H1>H1 - Sample Title</H1>
+// Text types
+<TextXL>Extra Large</TextXL>
+<TextL>Large</TextL>
+<TextM>Medium</TextM>
+<TextS>Small</TextS>
+<TextXS>Extra Small</TextXS>
+// Prop Options:
+// color    : primary | dark | muted | inherit (default)
+// weight   : 300 | 400 (default) | 500 | 600 | 700 | 800
+// display  : block (default) | inline-block
+// mb       : 0 (default) | any number (margin-bottom)
+```
 
-<div id="section1" /> <div id="section2" />
+## Modals (Common)
+
+```tsx
+// Confirmation Modal
+<ConfirmModal
+  open={openCM}
+  onOk={handleCMOk}
+  onCancel={() => handleCMCancel()}
+  title="Delete?"
+  okText="Delete"
+  cancelText="Cancel"
+>
+  Are you sure you want to delete?
+</ConfirmModal>
 ```
 
 ## Skeleton & Spin Usage
@@ -133,4 +156,15 @@ const items: DescriptionsProps['items'] = [
   colon={false}
   column={{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }}
 />
+```
+
+## Anchor
+
+```tsx
+<Anchor>
+  <Link href="#section1" title="Section 1" />
+  <Link href="#section2" title="Section 2" />
+</Anchor>
+
+<div id="section1" /> <div id="section2" />
 ```

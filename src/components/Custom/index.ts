@@ -1,2 +1,2 @@
-export * from './AppHeader/AppHeader'
-export * from './Sidebar/Sidebar'
+export * from './FloatingInput/FloatingInput'
+export { default as PageOuter } from './PageOuter/PageOuter'

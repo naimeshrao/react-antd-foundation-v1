@@ -59,6 +59,12 @@ export const getAntdTheme = (mode: ThemeMode): ThemeConfig => ({
   },
 
   components: {
+    Typography: {
+      titleMarginBottom: 0,
+      titleMarginTop: 0,
+      marginLG: 0,
+      marginSM: 0
+    },
     Button: {
       borderRadius: 6,
       controlHeight: 36,

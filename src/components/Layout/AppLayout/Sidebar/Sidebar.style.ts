@@ -6,6 +6,8 @@ import styled from 'styled-components'
 const { Sider } = Layout
 
 export const SiderWrap = styled(Sider)`
+  border-right: 1px solid ${({ theme }) => theme.colors['gray-200']};
+
   .ant-layout-sider-children {
     ${flex('column')};
   }

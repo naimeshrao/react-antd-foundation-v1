@@ -6,18 +6,26 @@ import {
   Card,
   Checkbox,
   Collapse,
+  ConfirmModal,
   DatePicker,
   Dropdown,
   Empty,
   FloatButton,
-  Form,
+  FloatingInput,
   FormItem,
-  Image,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
   Input,
-  Menu,
+  InputNumber,
   Modal,
+  PageOuter,
   Pagination,
+  Password,
   Radio,
+  RangePicker,
   Select,
   Skeleton,
   Spin,
@@ -26,6 +34,13 @@ import {
   Table,
   Tabs,
   Tag,
+  TextArea,
+  TextL,
+  TextM,
+  TextS,
+  TextXL,
+  TextXS,
+  TimePicker,
   Upload
 } from '@/components'
 import {
@@ -39,8 +54,8 @@ import {
 import {
   Col,
   CollapseProps,
-  DatePickerProps,
   Flex,
+  Form,
   MenuProps,
   Row,
   TabsProps,
@@ -54,77 +69,15 @@ interface DashboardProps {
   message?: string
 }
 
-type MenuItem = Required<MenuProps>['items'][number]
-
-const itemsSideMenu: MenuItem[] = [
-  {
-    key: 'sub1',
-    label: 'Navigation One',
-    children: [
-      {
-        key: 'g1',
-        label: 'Item 1',
-        type: 'group',
-        children: [
-          { key: '1', label: 'Option 1' },
-          { key: '2', label: 'Option 2' }
-        ]
-      },
-      {
-        key: 'g2',
-        label: 'Item 2',
-        type: 'group',
-        children: [
-          { key: '3', label: 'Option 3' },
-          { key: '4', label: 'Option 4' }
-        ]
-      }
-    ]
-  },
-  {
-    key: 'sub2',
-    label: 'Navigation Two',
-    children: [
-      { key: '5', label: 'Option 5' },
-      { key: '6', label: 'Option 6' },
-      {
-        key: 'sub3',
-        label: 'Submenu',
-        children: [
-          { key: '7', label: 'Option 7' },
-          { key: '8', label: 'Option 8' }
-        ]
-      }
-    ]
-  },
-  {
-    type: 'divider'
-  },
-  {
-    key: 'sub4',
-    label: 'Navigation Three',
-    children: [
-      { key: '9', label: 'Option 9' },
-      { key: '10', label: 'Option 10' },
-      { key: '11', label: 'Option 11' },
-      { key: '12', label: 'Option 12' }
-    ]
-  },
-  {
-    key: 'grp',
-    label: 'Group',
-    type: 'group',
-    children: [
-      { key: '13', label: 'Option 13' },
-      { key: '14', label: 'Option 14' }
-    ]
-  }
-]
+type FormValues = {
+  amount: string
+  normal: string
+}
 
 const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
   const { t } = useTranslation('account')
 
-  const { TextArea } = Input
+  // const { TextArea } = Input
 
   const items: MenuProps['items'] = [
     {
@@ -136,10 +89,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       label: 'Logout'
     }
   ]
-
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`)
-  }
 
   const onChange = (checked: boolean) => {
     console.log(`switch to ${checked}`)
@@ -214,14 +163,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     setIsModalOpen(false)
   }
 
-  const onClickMenu: MenuProps['onClick'] = (e) => {
-    console.log('click ', e)
-  }
-
-  const onChangeDP: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(date, dateString)
-  }
-
   const onChangeCol = (key: string | string[]) => {
     console.log(key)
   }
@@ -264,8 +205,30 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     })
   }
 
+  // Confirm Modal
+  const [openCM, setOpenCM] = useState(false)
+
+  const handleCMOk = () => {
+    console.log('Confirmed')
+    setOpenCM(false)
+  }
+
+  const handleCMCancel = () => {
+    setOpenCM(false)
+  }
+
+  // Form Values
+  const [form] = Form.useForm()
+
+  const onFinish = (values: FormValues) => {
+    console.log('Submitted values:', values)
+  }
+
+  // const { isFilled, updateFilled } = useFilled<string | undefined>()
+  // const [firstName, setFirstName] = useState('')
+
   return (
-    <div>
+    <PageOuter heading="Dashboard">
       <Button onClick={showNotification}>Show Notification</Button>
       <h1>{message}</h1>
       <Skeleton variant="h1" paragraph={false} />
@@ -289,16 +252,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       <br />
       <Radio value="A">Option A</Radio>
       <br />
-      <Select
-        defaultValue="lucy"
-        onChange={handleChange}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-          { value: 'disabled', label: 'Disabled', disabled: true }
-        ]}
-      />
+
       <br />
       <Skeleton active paragraph={{ rows: 4 }} />
       <br />
@@ -315,10 +269,9 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           name="username"
           rules={[{ required: true, message: 'Please input username!' }]}
         >
-          <Input placeholder="Basic usage" />
+          <Input />
         </FormItem>
         <br />
-        <TextArea rows={4} />
       </Form>
       <br />
       <Flex gap={20}>
@@ -352,16 +305,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         <p>Some contents...</p>
       </Modal>
       <br />
-      <Menu
-        onClick={onClickMenu}
-        style={{ width: 256 }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        items={itemsSideMenu}
-      />
-      <br />
-      <DatePicker onChange={onChangeDP} />
+
       <br />
       <Collapse
         items={itemsCollapse}
@@ -389,12 +333,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       </Upload>
       <br />
       <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No data found" />
-      <br />
-      <Image
-        width={200}
-        alt="basic"
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      />
       <br />
       <Row gutter={16}>
         <Col span={12}>
@@ -429,10 +367,164 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           <Button>Click Me</Button>
         </Col>
         <Col xs={24} md={24} lg={24} flex="1">
-          <Input placeholder="Type here" />
+          <Input />
         </Col>
       </Row>
-    </div>
+
+      <Button onClick={() => setOpenCM(true)}>Open Modal</Button>
+
+      <ConfirmModal
+        open={openCM}
+        onOk={handleCMOk}
+        onCancel={() => handleCMCancel()}
+        title="Delete?"
+        okText="Delete"
+        cancelText="Cancel"
+      >
+        Are you sure you want to delete?
+      </ConfirmModal>
+
+      <Row gutter={[24, 16]}>
+        <Col xs={24} lg={6}>
+          <H1>H1 - Sample Title</H1>
+          <H2>H2 - Sample Title</H2>
+          <H3>H3 - Sample Title</H3>
+          <H4>H4 - Sample Title</H4>
+          <H5>H5 - Sample Title</H5>
+        </Col>
+        <Col xs={24} lg={8}>
+          <TextXL>TextXL - Sample body text example</TextXL>
+          <TextL>TextL - Sample body text example</TextL>
+          <TextM>TextM - Sample body text example</TextM>
+          <TextS>TextS - Sample body text example</TextS>
+          <TextXS>TextXS - Sample body text example</TextXS>
+        </Col>
+        <Col xs={24} lg={5}>
+          <TextXL color="primary">Color: primary</TextXL>
+          <TextXL color="dark">Color: dark</TextXL>
+          <TextXL color="muted">Color: muted</TextXL>
+        </Col>
+        <Col xs={24} lg={5}>
+          <TextXL weight={300}>Weight: 300</TextXL>
+          <TextXL weight={400}>Weight: 400 (Default)</TextXL>
+          <TextXL weight={500}>Weight: 500</TextXL>
+          <TextXL weight={600}>Weight: 600</TextXL>
+          <TextXL weight={700}>Weight: 700</TextXL>
+          <TextXL weight={800}>Weight: 800</TextXL>
+        </Col>
+      </Row>
+
+      <Row gutter={[24, 16]}>
+        <Col xs={24} lg={6}>
+          <Form
+            form={form}
+            onFinish={onFinish}
+            layout="vertical"
+            autoComplete="off"
+          >
+            <FloatingInput
+              name="nameAllowClear"
+              label="Name (Allow Clear)"
+              rules={[{ required: true, message: 'Name is required' }]}
+            >
+              <Input allowClear />
+            </FloatingInput>
+
+            <FloatingInput
+              name="name"
+              label="Name"
+              rules={[{ required: true, message: 'Name is required' }]}
+              help="Description text"
+            >
+              <Input />
+            </FloatingInput>
+
+            <FloatingInput
+              name="select"
+              label="Select User"
+              rules={[{ required: true, message: 'Please select a user' }]}
+              help="Description text"
+            >
+              <Select
+                allowClear
+                options={[
+                  { value: 'jack', label: 'Jack' },
+                  { value: 'lucy', label: 'Lucy' },
+                  { value: 'yiminghe', label: 'Yiminghe' },
+                  { value: 'disabled', label: 'Disabled', disabled: true }
+                ]}
+              />
+            </FloatingInput>
+
+            <FloatingInput
+              name="date"
+              label="Date Picker"
+              rules={[{ required: true, message: 'Please select a date' }]}
+              help="Description text"
+            >
+              <DatePicker style={{ width: '100%' }} />
+            </FloatingInput>
+
+            <FloatingInput
+              name="inputNumber"
+              label="Input Number"
+              rules={[{ required: true, message: 'Please enter a number' }]}
+            >
+              <InputNumber style={{ width: '100%' }} />
+            </FloatingInput>
+
+            <FloatingInput
+              name="textArea"
+              label="Text Area"
+              rules={[{ required: true, message: 'Text is required' }]}
+            >
+              <TextArea rows={4} />
+            </FloatingInput>
+
+            <FloatingInput
+              name="password"
+              label="Password"
+              rules={[
+                { required: true, message: 'Password is required' },
+                { min: 8, message: 'Minimum 8 characters' },
+                {
+                  pattern: /[A-Z]/,
+                  message: 'At least one uppercase letter'
+                },
+                {
+                  pattern: /[0-9]/,
+                  message: 'At least one number'
+                }
+              ]}
+            >
+              <Password allowClear />
+            </FloatingInput>
+
+            <FloatingInput
+              name="time"
+              label="Time Picker"
+              rules={[{ required: true, message: 'Please select time' }]}
+            >
+              <TimePicker style={{ width: '100%' }} />
+            </FloatingInput>
+
+            <FloatingInput
+              name="range"
+              label="Range Picker"
+              rules={[{ required: true, message: 'Please select date range' }]}
+            >
+              <RangePicker style={{ width: '100%' }} />
+            </FloatingInput>
+
+            <FloatingInput>
+              <Button type="primary" htmlType="submit" block>
+                Submit
+              </Button>
+            </FloatingInput>
+          </Form>
+        </Col>
+      </Row>
+    </PageOuter>
   )
 }
 

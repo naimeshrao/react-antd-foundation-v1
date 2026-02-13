@@ -1,6 +1,8 @@
 import { Button } from '@/components/Antd'
 import { AppHeaderWrap } from './AppHeader.style'
 import { IconMenu } from '@tabler/icons-react'
+import { Flex } from 'antd'
+import { LanguageSelector, ThemeToggle } from '@/components/Utilities'
 
 interface AppHeaderProps {
   onSidebarToggle: () => void
@@ -17,6 +19,11 @@ export function AppHeader({ onSidebarToggle }: AppHeaderProps) {
         icon={<IconMenu />}
         onClick={onSidebarToggle}
       />
+
+      <Flex align="center" gap={12}>
+        <ThemeToggle />
+        <LanguageSelector />
+      </Flex>
     </AppHeaderWrap>
   )
 }

@@ -8,6 +8,7 @@ import prettier from 'eslint-config-prettier'
 import prettierPlugin from 'eslint-plugin-prettier'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import globals from 'globals'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -115,7 +116,9 @@ export default [
         tsconfigRootDir: __dirname,
         project: null
       },
-      globals: browserGlobals
+      globals: {
+        ...globals.browser
+      }
     },
     plugins: {
       ...basePlugins,
