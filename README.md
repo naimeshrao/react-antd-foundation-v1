@@ -48,6 +48,8 @@
   # Create a .prettierrc file in the project root and add Prettier config settings.
   # npx prettier --write .  (to fix Windows line ending issue: warning Delete `␍`)
   # npm run lint (to test errors)
+  npm install --save-dev typescript @types/react @types/react-dom
+  npm install globals --save-dev
 
   # ▶️ Husky
   npm install -D husky
@@ -82,6 +84,9 @@
   # Identity Proxy for CSS
   npm install --save-dev identity-obj-proxy
   npm install --save-dev @types/jest
+
+  # ▶️ Dayjs
+  npm install dayjs
 ```
 
 ## Update Files & Structure

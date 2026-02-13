@@ -1,5 +1,8 @@
 /* ===== Color Variables ===== */
 export const mainLightColors = {
+  white: 'white',
+  black: 'black',
+
   // Primary / Secondary
   'primary-500': '#0d6efd',
   'primary-700': '#0a58ca',
@@ -13,6 +16,10 @@ export const mainLightColors = {
   'gray-400': '#9ca3af',
   'gray-500': '#6b7280',
   'gray-600': '#4b5563',
+
+  // Utilities
+  'border-default': '#dbdbdb',
+  'placeholder-color': '#999999',
 
   // Semantic
   'success-dark': '#047857',
@@ -33,6 +40,9 @@ export const mainLightColors = {
 }
 
 export const mainDarkColors = {
+  white: 'white',
+  black: 'black',
+
   // Primary / Secondary
   'primary-500': '#0d6efd',
   'primary-700': '#0a58ca',
@@ -46,6 +56,10 @@ export const mainDarkColors = {
   'gray-400': '#9ca3af',
   'gray-500': '#6b7280',
   'gray-600': '#4b5563',
+
+  // Utilities
+  'border-default': '#dbdbdb',
+  'placeholder-color': '#999999',
 
   // Semantic
   'success-dark': '#047857',

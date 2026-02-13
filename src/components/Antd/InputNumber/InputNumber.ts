@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleError,
   InputStyleFocused,
   InputStyleHover,
   SingleLineInput
@@ -21,5 +22,10 @@ export const InputNumber = styled(AntdInputNumber)`
   }
 
   .ant-input-number-input {
+  }
+
+  // Error State
+  &.ant-input-number-status-error:not(.ant-number-disabled) {
+    ${InputStyleError};
   }
 `

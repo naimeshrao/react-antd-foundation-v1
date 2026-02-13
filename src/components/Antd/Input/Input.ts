@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleError,
   InputStyleFocused,
   InputStyleHover,
   SingleLineInput
@@ -7,23 +8,38 @@ import {
 import { Input as AntdInput } from 'antd'
 import styled, { css } from 'styled-components'
 
+type ResizeType = 'none' | 'vertical' | 'horizontal' | 'both'
+
+interface TextAreaProps {
+  resize?: ResizeType
+}
+
+const textareaRow: Record<number, string> = {
+  2: '60px',
+  3: '80px',
+  4: '120px',
+  5: '160px',
+  6: '180px',
+  7: '220px'
+}
+
 const baseInputStyles = css`
   ${InputStyle};
   ${SingleLineInput};
   width: 100%;
 
-  textarea {
+  textarea.ant-input {
     padding: 14px;
     resize: none;
   }
 
   // ===== Hover/Focus =====
-  &:hover {
-    ${InputStyleHover}
+  &:not(.ant-input-disabled):hover {
+    ${InputStyleHover};
   }
 
   &:focus {
-    ${InputStyleFocused}
+    ${InputStyleFocused};
   }
 
   // ===== Sizes =====
@@ -52,15 +68,14 @@ const baseInputStyles = css`
 
   // ===== Error State =====
   &.ant-input-status-error:not(.ant-input-disabled) {
-    &:hover {
-      border-color: ${({ theme }) => theme.colors['error-dark']};
-    }
+    ${InputStyleError};
   }
 
   // ===== Autofill Fix =====
   .ant-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    -webkit-text-fill-color: black;
+    -webkit-box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.white}
+      inset;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.black};
   }
 `
 
@@ -68,8 +83,19 @@ export const Input = styled(AntdInput)`
   ${baseInputStyles}
 `
 
-export const TextArea = styled(AntdInput.TextArea)`
+export const TextArea = styled(AntdInput.TextArea)<TextAreaProps>`
   ${baseInputStyles}
+
+  &.ant-input {
+    resize: ${({ resize = 'none' }) => resize};
+
+    ${({ rows }) =>
+      rows &&
+      textareaRow[rows] &&
+      css`
+        min-height: ${textareaRow[rows]};
+      `}
+  }
 `
 
 export const Password = styled(AntdInput.Password)`

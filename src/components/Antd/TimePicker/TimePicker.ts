@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleError,
   InputStyleFocused,
   InputStyleHover,
   SingleLineInput
@@ -18,5 +19,10 @@ export const TimePicker = styled(AntdTimePicker)`
 
   &.ant-picker-focused {
     ${InputStyleFocused};
+  }
+
+  // Error State
+  &.ant-picker-status-error:not(.ant-picker-disabled) {
+    ${InputStyleError};
   }
 `

@@ -11,7 +11,7 @@ export const Button = styled(AntdButton)`
 
     // ===== Primary Button =====
     &.ant-btn-primary {
-      color: white;
+      color: ${({ theme }) => theme.colors.white};
       border-color: ${({ theme }) => theme.colors['primary-500']};
       background: ${({ theme }) => theme.colors['primary-500']};
 
@@ -25,7 +25,7 @@ export const Button = styled(AntdButton)`
 
     // ===== Default Button (Secondary) =====
     &.ant-btn-default {
-      color: white;
+      color: ${({ theme }) => theme.colors.white};
       border-color: ${({ theme }) => theme.colors['secondary-500']};
       background: ${({ theme }) => theme.colors['secondary-500']};
 

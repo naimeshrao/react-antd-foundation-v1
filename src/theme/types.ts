@@ -6,6 +6,9 @@ export interface AppTheme {
   mode: ThemeMode
 
   colors: {
+    white: string
+    black: string
+
     'primary-500': string
     'primary-700': string
     'secondary-500': string
@@ -17,6 +20,9 @@ export interface AppTheme {
     'gray-400': string
     'gray-500': string
     'gray-600': string
+
+    'border-default': string
+    'placeholder-color': string
 
     'success-dark': string
     'success-medium': string

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     /* Build output (not emitted in Vite) */
     "noEmit": true,
     /* Language and environment */

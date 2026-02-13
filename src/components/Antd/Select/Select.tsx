@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleError,
   InputStyleFocused,
   InputStyleHover,
   SingleLineInput
@@ -18,7 +19,7 @@ const SelectStyled = styled(AntdSelect)`
     ${SingleLineInput};
     padding: 0 14px;
 
-    &:hover {
+    &:not(.ant-select-disabled):hover {
       ${InputStyleHover};
     }
 
@@ -53,7 +54,8 @@ const SelectStyled = styled(AntdSelect)`
     }
 
     // Error State
-    &.ant-select-status-error {
+    &.ant-select-status-error:not(.ant-select-disabled) {
+      ${InputStyleError};
     }
   }
 

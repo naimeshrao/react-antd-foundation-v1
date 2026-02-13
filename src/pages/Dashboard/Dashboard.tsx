@@ -21,6 +21,7 @@ import {
   Input,
   InputNumber,
   Modal,
+  PageOuter,
   Pagination,
   Password,
   Radio,
@@ -53,7 +54,6 @@ import {
 import {
   Col,
   CollapseProps,
-  DatePickerProps,
   Flex,
   Form,
   MenuProps,
@@ -67,6 +67,11 @@ import { useTranslation } from 'react-i18next'
 
 interface DashboardProps {
   message?: string
+}
+
+type FormValues = {
+  amount: string
+  normal: string
 }
 
 const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
@@ -84,10 +89,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       label: 'Logout'
     }
   ]
-
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`)
-  }
 
   const onChange = (checked: boolean) => {
     console.log(`switch to ${checked}`)
@@ -162,10 +163,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     setIsModalOpen(false)
   }
 
-  const onChangeDP: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(date, dateString)
-  }
-
   const onChangeCol = (key: string | string[]) => {
     console.log(key)
   }
@@ -220,10 +217,18 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     setOpenCM(false)
   }
 
+  // Form Values
   const [form] = Form.useForm()
 
+  const onFinish = (values: FormValues) => {
+    console.log('Submitted values:', values)
+  }
+
+  // const { isFilled, updateFilled } = useFilled<string | undefined>()
+  // const [firstName, setFirstName] = useState('')
+
   return (
-    <div>
+    <PageOuter heading="Dashboard">
       <Button onClick={showNotification}>Show Notification</Button>
       <h1>{message}</h1>
       <Skeleton variant="h1" paragraph={false} />
@@ -409,119 +414,117 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         </Col>
       </Row>
 
-      <Form form={form} layout="vertical">
-        <FloatingInput
-          name="Name Allow Clear"
-          label="Name Allow Clear"
-          required
-          rules={[{ required: true, message: 'Name is required' }]}
-        >
-          <Input allowClear />
-        </FloatingInput>
+      <Row gutter={[24, 16]}>
+        <Col xs={24} lg={6}>
+          <Form
+            form={form}
+            onFinish={onFinish}
+            layout="vertical"
+            autoComplete="off"
+          >
+            <FloatingInput
+              name="nameAllowClear"
+              label="Name (Allow Clear)"
+              rules={[{ required: true, message: 'Name is required' }]}
+            >
+              <Input allowClear />
+            </FloatingInput>
 
-        <FloatingInput
-          name="Name"
-          label="Name"
-          required
-          rules={[{ required: true, message: 'Name is required' }]}
-        >
-          <Input />
-        </FloatingInput>
+            <FloatingInput
+              name="name"
+              label="Name"
+              rules={[{ required: true, message: 'Name is required' }]}
+              help="Description text"
+            >
+              <Input />
+            </FloatingInput>
 
-        <FloatingInput
-          label="Select"
-          name="Select"
-          required
-          rules={[
-            { required: true, message: 'Gender is required' },
-            { type: 'email', message: 'Enter valid Gender' }
-          ]}
-        >
-          <Select
-            allowClear
-            onChange={handleChange}
-            options={[
-              { value: 'jack', label: 'Jack' },
-              { value: 'lucy', label: 'Lucy' },
-              { value: 'Yiminghe', label: 'yiminghe' },
-              { value: 'disabled', label: 'Disabled', disabled: true }
-            ]}
-          />
-        </FloatingInput>
+            <FloatingInput
+              name="select"
+              label="Select User"
+              rules={[{ required: true, message: 'Please select a user' }]}
+              help="Description text"
+            >
+              <Select
+                allowClear
+                options={[
+                  { value: 'jack', label: 'Jack' },
+                  { value: 'lucy', label: 'Lucy' },
+                  { value: 'yiminghe', label: 'Yiminghe' },
+                  { value: 'disabled', label: 'Disabled', disabled: true }
+                ]}
+              />
+            </FloatingInput>
 
-        <FloatingInput
-          label="Date Picker"
-          name="DatePicker"
-          required
-          rules={[
-            { required: true, message: 'Gender is required' },
-            { type: 'email', message: 'Enter valid Gender' }
-          ]}
-        >
-          <DatePicker onChange={onChangeDP} />
-        </FloatingInput>
+            <FloatingInput
+              name="date"
+              label="Date Picker"
+              rules={[{ required: true, message: 'Please select a date' }]}
+              help="Description text"
+            >
+              <DatePicker style={{ width: '100%' }} />
+            </FloatingInput>
 
-        <FloatingInput
-          label="Input Number"
-          name="InputNumber"
-          required
-          rules={[
-            { required: true, message: 'Gender is required' },
-            { type: 'email', message: 'Enter valid Gender' }
-          ]}
-        >
-          <InputNumber />
-        </FloatingInput>
+            <FloatingInput
+              name="inputNumber"
+              label="Input Number"
+              rules={[{ required: true, message: 'Please enter a number' }]}
+            >
+              <InputNumber style={{ width: '100%' }} />
+            </FloatingInput>
 
-        <FloatingInput
-          label="TextArea"
-          name="TextArea"
-          required
-          rules={[
-            { required: true, message: 'Gender is required' },
-            { type: 'email', message: 'Enter valid Gender' }
-          ]}
-        >
-          <TextArea rows={4} />
-        </FloatingInput>
+            <FloatingInput
+              name="textArea"
+              label="Text Area"
+              rules={[{ required: true, message: 'Text is required' }]}
+            >
+              <TextArea rows={4} />
+            </FloatingInput>
 
-        <FloatingInput
-          label="Password"
-          name="Password"
-          required
-          // rules={[
-          //   { required: true, message: 'Gender is required' },
-          //   { type: 'email', message: 'Enter valid Gender' }
-          // ]}
-        >
-          <Password type="password" allowClear />
-        </FloatingInput>
+            <FloatingInput
+              name="password"
+              label="Password"
+              rules={[
+                { required: true, message: 'Password is required' },
+                { min: 8, message: 'Minimum 8 characters' },
+                {
+                  pattern: /[A-Z]/,
+                  message: 'At least one uppercase letter'
+                },
+                {
+                  pattern: /[0-9]/,
+                  message: 'At least one number'
+                }
+              ]}
+            >
+              <Password allowClear />
+            </FloatingInput>
 
-        <FloatingInput
-          label="TimePicker"
-          name="TimePicker"
-          required
-          rules={[
-            { required: true, message: 'Gender is required' },
-            { type: 'email', message: 'Enter valid Gender' }
-          ]}
-        >
-          <TimePicker />
-        </FloatingInput>
+            <FloatingInput
+              name="time"
+              label="Time Picker"
+              rules={[{ required: true, message: 'Please select time' }]}
+            >
+              <TimePicker style={{ width: '100%' }} />
+            </FloatingInput>
 
-        <FloatingInput
-          label="RangePicker"
-          name="RangePicker"
-          required
-          rules={[
-            { required: true, message: 'Gender is required' },
-            { type: 'email', message: 'Enter valid Gender' }
-          ]}
-        >
-          <RangePicker />
-        </FloatingInput>
-      </Form>
-    </div>
+            <FloatingInput
+              name="range"
+              label="Range Picker"
+              rules={[{ required: true, message: 'Please select date range' }]}
+            >
+              <RangePicker style={{ width: '100%' }} />
+            </FloatingInput>
+
+            <FloatingInput>
+              <Button type="primary" htmlType="submit" block>
+                Submit
+              </Button>
+            </FloatingInput>
+          </Form>
+        </Col>
+      </Row>
+    </PageOuter>
   )
 }
 

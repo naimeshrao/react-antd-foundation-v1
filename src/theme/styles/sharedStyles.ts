@@ -57,12 +57,23 @@ export const SingleLineInput = css`
 
 export const InputStyleHover = css`
   border-color: ${({ theme }) => theme.colors['gray-600']};
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
 `
 
 export const InputStyleFocused = css`
   border-color: ${({ theme }) => theme.colors['primary-500']};
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
+`
+
+export const InputStyleError = css`
+  border-color: ${({ theme }) => theme.colors['error-dark']};
+  background-color: ${({ theme }) => theme.colors.white};
+`
+
+export const InputStyleDisabled = css`
+  border-color: ${({ theme }) => theme.colors['gray-300']};
+  background-color: ${({ theme }) => theme.colors['gray-300']};
+  color: ${({ theme }) => theme.colors['gray-600']};
 `
 
 // ===== Div Button =====

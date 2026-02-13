@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleError,
   InputStyleFocused,
   InputStyleHover,
   SingleLineInput
@@ -17,18 +18,23 @@ const baseStyle = css`
   ${SingleLineInput};
 
   &:hover {
-    ${InputStyleHover}
+    ${InputStyleHover};
   }
 
   &.ant-picker-focused {
-    ${InputStyleFocused}
+    ${InputStyleFocused};
+  }
+
+  // Error State
+  &.ant-picker-status-error:not(.ant-picker-disabled) {
+    ${InputStyleError};
   }
 `
 
 export const DatePicker = styled(AntDatePicker)<DatePickerProps<Dayjs>>`
-  ${baseStyle}
+  ${baseStyle};
 `
 
 export const RangePicker = styled(AntRangePicker)<DatePickerProps<Dayjs>>`
-  ${baseStyle}
+  ${baseStyle};
 `
