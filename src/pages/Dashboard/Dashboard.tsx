@@ -11,7 +11,7 @@ import {
   Dropdown,
   Empty,
   FloatButton,
-  FloatingInput,
+  FloatingField,
   FormItem,
   H1,
   H2,
@@ -422,24 +422,24 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
             layout="vertical"
             autoComplete="off"
           >
-            <FloatingInput
+            <FloatingField
               name="nameAllowClear"
               label="Name (Allow Clear)"
               rules={[{ required: true, message: 'Name is required' }]}
             >
               <Input allowClear />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="name"
               label="Name"
               rules={[{ required: true, message: 'Name is required' }]}
               help="Description text"
             >
               <Input />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="select"
               label="Select User"
               rules={[{ required: true, message: 'Please select a user' }]}
@@ -454,34 +454,34 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
                   { value: 'disabled', label: 'Disabled', disabled: true }
                 ]}
               />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="date"
               label="Date Picker"
               rules={[{ required: true, message: 'Please select a date' }]}
               help="Description text"
             >
               <DatePicker style={{ width: '100%' }} />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="inputNumber"
               label="Input Number"
               rules={[{ required: true, message: 'Please enter a number' }]}
             >
               <InputNumber style={{ width: '100%' }} />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="textArea"
               label="Text Area"
               rules={[{ required: true, message: 'Text is required' }]}
             >
               <TextArea rows={4} />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="password"
               label="Password"
               rules={[
@@ -498,29 +498,27 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
               ]}
             >
               <Password allowClear />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="time"
               label="Time Picker"
               rules={[{ required: true, message: 'Please select time' }]}
             >
               <TimePicker style={{ width: '100%' }} />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput
+            <FloatingField
               name="range"
               label="Range Picker"
               rules={[{ required: true, message: 'Please select date range' }]}
             >
               <RangePicker style={{ width: '100%' }} />
-            </FloatingInput>
+            </FloatingField>
 
-            <FloatingInput>
-              <Button type="primary" htmlType="submit" block>
-                Submit
-              </Button>
-            </FloatingInput>
+            <Button type="primary" htmlType="submit" block>
+              Submit
+            </Button>
           </Form>
         </Col>
       </Row>

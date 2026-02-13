@@ -1,5 +1,6 @@
 import {
   DatePicker,
+  FloatingField,
   Form,
   Input,
   InputNumber,
@@ -10,53 +11,67 @@ import {
   TimePicker
 } from '@/components'
 import { Col, Row } from 'antd'
+import dayjs from 'dayjs'
 
 const Login = () => {
+  // Form Values
+  const initialValues = {
+    nameAllowClear: 'John Doe',
+    name: 'Naimesh',
+    select: 'jack',
+    date: dayjs(),
+    inputNumber: 42,
+    textArea: 'This is pre-filled text.',
+    password: 'Password1',
+    time: dayjs(),
+    range: [dayjs().subtract(1, 'day'), dayjs()]
+  }
+
   return (
     <div>
       <Row gutter={[24, 16]}>
         <Col xs={24} lg={6}>
-          <Form layout="vertical" disabled>
-            <Form.Item name="nameAllowClear" label="Name (Allow Clear)">
+          <Form layout="vertical" initialValues={initialValues} disabled>
+            <FloatingField name="nameAllowClear" label="Name (Allow Clear)">
               <Input allowClear />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="name" label="Name">
+            <FloatingField name="name" label="Name">
               <Input />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="select" label="Select User">
+            <FloatingField name="select" label="Select User">
               <Select
                 options={[
                   { value: 'jack', label: 'Jack' },
                   { value: 'lucy', label: 'Lucy' }
                 ]}
               />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="date" label="Date Picker">
+            <FloatingField name="date" label="Date Picker">
               <DatePicker />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="inputNumber" label="Input Number">
+            <FloatingField name="inputNumber" label="Input Number">
               <InputNumber />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="textArea" label="Text Area">
+            <FloatingField name="textArea" label="Text Area">
               <TextArea rows={4} />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="password" label="Password">
+            <FloatingField name="password" label="Password">
               <Password />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="time" label="Time Picker">
+            <FloatingField name="time" label="Time Picker">
               <TimePicker />
-            </Form.Item>
+            </FloatingField>
 
-            <Form.Item name="range" label="Range Picker">
+            <FloatingField name="range" label="Range Picker">
               <RangePicker />
-            </Form.Item>
+            </FloatingField>
           </Form>
         </Col>
       </Row>
