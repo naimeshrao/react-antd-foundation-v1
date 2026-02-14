@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Flex, Button, Row, Col } from 'antd'
+import { Row, Col } from 'antd'
 import { Card, type CardProps } from './Card'
 import { H2 } from '@/components/Utilities'
 import { StorySection, StorySubTitle } from '@/components/Stories/Stories.style'
+import { Button } from '../Button/Button'
 
 const meta = {
   title: 'Antd/Card',

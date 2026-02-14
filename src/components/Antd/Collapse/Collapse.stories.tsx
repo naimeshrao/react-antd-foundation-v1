@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Col, Flex, Row } from 'antd'
+import { Col, Row } from 'antd'
 import type { CollapseProps } from 'antd'
 import { Collapse } from './Collapse'
 import { StorySection, StorySubTitle } from '@/components/Stories/Stories.style'
