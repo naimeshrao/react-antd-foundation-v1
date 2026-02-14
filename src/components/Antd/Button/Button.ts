@@ -10,7 +10,7 @@ export const Button = styled(AntdButton)`
     gap: 16px;
 
     // ===== Primary Button =====
-    &.ant-btn-primary {
+    &.ant-btn-primary:not(.ant-btn-dangerous) {
       color: ${({ theme }) => theme.colors.white};
       border-color: ${({ theme }) => theme.colors['primary-500']};
       background: ${({ theme }) => theme.colors['primary-500']};

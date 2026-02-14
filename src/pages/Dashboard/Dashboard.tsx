@@ -231,6 +231,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     <PageOuter heading="Dashboard">
       <Button onClick={showNotification}>Show Notification</Button>
       <h1>{message}</h1>
+      <Skeleton.Avatar active />
       <Skeleton variant="h1" paragraph={false} />
       <Skeleton variant="h1" paragraph={false} fullWidth />
       <p>{t('Welcome')}</p>
@@ -462,7 +463,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
               rules={[{ required: true, message: 'Please select a date' }]}
               help="Description text"
             >
-              <DatePicker style={{ width: '100%' }} />
+              <DatePicker />
             </FloatingField>
 
             <FloatingField
@@ -470,7 +471,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
               label="Input Number"
               rules={[{ required: true, message: 'Please enter a number' }]}
             >
-              <InputNumber style={{ width: '100%' }} />
+              <InputNumber />
             </FloatingField>
 
             <FloatingField
@@ -505,7 +506,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
               label="Time Picker"
               rules={[{ required: true, message: 'Please select time' }]}
             >
-              <TimePicker style={{ width: '100%' }} />
+              <TimePicker />
             </FloatingField>
 
             <FloatingField
@@ -513,7 +514,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
               label="Range Picker"
               rules={[{ required: true, message: 'Please select date range' }]}
             >
-              <RangePicker style={{ width: '100%' }} />
+              <RangePicker />
             </FloatingField>
 
             <Button type="primary" htmlType="submit" block>

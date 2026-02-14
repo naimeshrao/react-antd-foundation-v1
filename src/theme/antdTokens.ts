@@ -1,110 +1,116 @@
 import { ThemeConfig } from 'antd'
 import { ThemeMode } from './types'
 
-export const getAntdTheme = (mode: ThemeMode): ThemeConfig => ({
-  token: {
-    // Colors
-    colorPrimary: mode === 'light' ? '#0C78FF' : '#aa3344',
-    colorSuccess: '#52c41a',
-    colorWarning: '#faad14',
-    colorError: '#ff4d4f',
-    colorInfo: '#1890ff',
+export const getAntdTheme = (mode: ThemeMode): ThemeConfig => {
+  const isLight = mode === 'light'
 
-    // Background & borders
-    colorBgBase: mode === 'light' ? '#ffffff' : '#141414',
-    colorBgContainer: mode === 'light' ? '#ffffff' : '#1f1f1f',
-    colorBorder: mode === 'light' ? '#d9d9d9' : '#434343',
+  return {
+    token: {
+      // Colors
+      colorPrimary: isLight ? '#0d6efd' : '#3b82f6',
+      colorSuccess: isLight ? '#10b981' : '#34d399',
+      colorWarning: isLight ? '#f59e0b' : '#fbbf24',
+      colorError: isLight ? '#ef4444' : '#f87171',
+      colorInfo: isLight ? '#0ea5e9' : '#38bdf8',
 
-    // Text colors
-    colorTextBase: mode === 'light' ? '#000000d9' : '#ffffffd9',
-    colorTextSecondary: mode === 'light' ? '#00000073' : '#ffffff73',
+      // Background & Borders
+      colorBgBase: isLight ? '#ffffff' : '#141414',
+      colorBgContainer: isLight ? '#ffffff' : '#1f1f1f',
+      colorBorder: isLight ? '#d9d9d9' : '#434343',
 
-    // Links
-    colorLink: mode === 'light' ? '#0C78FF' : '#ff7a7a',
-    colorLinkHover: mode === 'light' ? '#096dd9' : '#ff4d4f',
-    colorLinkActive: mode === 'light' ? '#0050b3' : '#aa3344',
+      // Text colors
+      colorTextBase: isLight ? '#000000d9' : '#ffffffd9',
+      colorText: isLight ? '#000000d9' : '#ffffffd9',
+      colorTextSecondary: isLight ? '#00000073' : '#ffffff73',
 
-    // Typography
-    fontFamily: "'Inter', sans-serif",
-    lineHeight: 1.5,
-    fontSize: 14,
-    fontWeightStrong: 600,
-    fontSizeHeading1: 24,
-    fontSizeHeading2: 20,
-    fontSizeHeading3: 18,
-    fontSizeHeading4: 16,
-    fontSizeHeading5: 14,
+      // Links
+      colorLink: isLight ? '#0C78FF' : '#3b82f6',
+      colorLinkHover: isLight ? '#096dd9' : '#2563eb',
+      colorLinkActive: isLight ? '#0050b3' : '#1d4ed8',
 
-    // Border & Radius
-    borderRadius: 6,
-    borderRadiusSM: 4,
-    borderRadiusLG: 8,
+      // Typography
+      fontFamily: "'Inter', sans-serif",
+      lineHeight: 1.5,
+      fontSize: 14,
+      fontWeightStrong: 600,
+      fontSizeHeading1: 24,
+      fontSizeHeading2: 20,
+      fontSizeHeading3: 18,
+      fontSizeHeading4: 16,
+      fontSizeHeading5: 14,
 
-    // Spacing
-    controlHeight: 38,
-    controlHeightLG: 46,
-    controlHeightSM: 30,
-    paddingSM: 8,
-    padding: 12,
-    paddingLG: 16,
-
-    // Shadows
-    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-    boxShadowSecondary: '0 1px 4px rgba(0,0,0,0.12)',
-
-    // Form Items
-    colorText: mode === 'light' ? '#000000d9' : '#ffffffd9',
-    colorTextPlaceholder: mode === 'light' ? '#8c8c8c' : '#bfbfbf',
-    colorTextDisabled: mode === 'light' ? '#8c8c8c' : '#bfbfbf'
-  },
-
-  components: {
-    Typography: {
-      titleMarginBottom: 0,
-      titleMarginTop: 0,
-      marginLG: 0,
-      marginSM: 0
-    },
-    Button: {
+      // Border & Radius
       borderRadius: 6,
-      controlHeight: 36,
-      paddingInline: 16
+      borderRadiusSM: 4,
+      borderRadiusLG: 8,
+
+      // Spacing
+      controlHeight: 38,
+      controlHeightLG: 46,
+      controlHeightSM: 30,
+      paddingSM: 8,
+      padding: 12,
+      paddingLG: 16,
+
+      // Shadows
+      boxShadow: isLight
+        ? '0 2px 8px rgba(0,0,0,0.15)'
+        : '0 2px 8px rgba(0,0,0,0.6)',
+      boxShadowSecondary: isLight
+        ? '0 1px 4px rgba(0,0,0,0.12)'
+        : '0 1px 4px rgba(0,0,0,0.5)',
+
+      // Form Items
+      colorTextPlaceholder: isLight ? '#8c8c8c' : '#bfbfbf',
+      colorTextDisabled: isLight ? '#8c8c8c' : '#bfbfbf'
     },
-    Input: {
-      controlHeight: 36,
-      borderRadius: 6
-    },
-    Card: {
-      borderRadius: 6,
-      padding: 16
-    },
-    Select: {
-      optionHeight: 26,
-      optionLineHeight: '26px',
-      optionSelectedBg: '#fbfbfb'
-    },
-    Radio: { dotSize: 8 },
-    Modal: {
-      borderRadius: 6
-    },
-    Layout: {
-      siderBg: '#ffffff',
-      headerBg: '#ffffff',
-      bodyBg: '#ffffff'
-    },
-    Table: {
-      headerBg: '#fbfbfb',
-      borderColor: '#cccccc',
-      headerColor: '#666666',
-      colorText: '#777777',
-      rowHoverBg: '#fbfbfb',
-      cellFontSize: 14,
-      borderRadius: 0,
-      headerBorderRadius: 0,
-      cellPaddingBlock: 12,
-      cellPaddingInline: 24
+
+    components: {
+      Typography: {
+        titleMarginBottom: 0,
+        titleMarginTop: 0,
+        marginLG: 0,
+        marginSM: 0
+      },
+      Button: {
+        borderRadius: 6,
+        controlHeight: 36,
+        paddingInline: 16
+      },
+      Input: {
+        controlHeight: 36,
+        borderRadius: 6
+      },
+      Card: {
+        borderRadius: 6,
+        padding: 16
+      },
+      Select: {
+        optionHeight: 26,
+        optionLineHeight: '26px',
+        optionSelectedBg: isLight ? '#fbfbfb' : '#262626'
+      },
+      Radio: { dotSize: 8 },
+      Modal: {
+        borderRadius: 6
+      },
+      Layout: {
+        siderBg: isLight ? '#ffffff' : '#141414',
+        headerBg: isLight ? '#ffffff' : '#141414',
+        bodyBg: isLight ? '#ffffff' : '#141414'
+      },
+      Table: {
+        headerBg: isLight ? '#fbfbfb' : '#1f1f1f',
+        borderColor: isLight ? '#cccccc' : '#434343',
+        headerColor: isLight ? '#666666' : '#bbbbbb',
+        colorText: isLight ? '#777777' : '#dddddd',
+        rowHoverBg: isLight ? '#fbfbfb' : '#262626',
+        cellFontSize: 14,
+        borderRadius: 0,
+        headerBorderRadius: 0,
+        cellPaddingBlock: 12,
+        cellPaddingInline: 24
+      }
     }
   }
-})
-
-// Usage: mode === 'light' ? '#000000' : '#ffffff' to apply color based on mode
+}

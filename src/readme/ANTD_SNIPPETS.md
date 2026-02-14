@@ -91,7 +91,7 @@
 // mb       : 0 (default) | any number (margin-bottom)
 ```
 
-## Modals (Common)
+## Modals
 
 ```tsx
 // Confirmation Modal
@@ -105,6 +105,15 @@
 >
   Are you sure you want to delete?
 </ConfirmModal>
+
+<Modal
+  title="Modal dialog"
+  width={200}
+  centered
+  mask
+  closable
+  closeIcon
+/>
 ```
 
 ## Skeleton & Spin Usage

@@ -42,7 +42,7 @@ export const spinAnimation = keyframes`
 // ===== Form Elements =====
 export const InputStyle = css`
   font-size: 14px;
-  background: ${({ theme }) => theme.colors['gray-100']};
+  background: ${({ theme }) => theme.colors['gray-50']};
   border-color: ${({ theme }) => theme.colors['gray-300']};
   color: ${({ theme }) => theme.colors['gray-600']};
 `
@@ -63,6 +63,7 @@ export const InputStyleHover = css`
 export const InputStyleFocused = css`
   border-color: ${({ theme }) => theme.colors['primary-500']};
   background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: none;
 `
 
 export const InputStyleError = css`

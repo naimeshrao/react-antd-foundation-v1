@@ -87,6 +87,11 @@
 
   # ▶️ Dayjs
   npm install dayjs
+
+  # ▶️ Cleaner Script (Optional)
+  npm install rimraf --save-dev
+  # Package json scripts > "clean": "rimraf dist node_modules tsconfig*.tsbuildinfo"
+  # npm run clean
 ```
 
 ## Update Files & Structure

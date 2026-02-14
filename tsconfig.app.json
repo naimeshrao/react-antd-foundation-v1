@@ -1,40 +1,33 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    /* Build output (not emitted in Vite) */
     "noEmit": true,
-    /* Language and environment */
     "target": "ES2022",
     "lib": ["DOM", "DOM.Iterable", "ES2022", "dom", "esnext"],
     "jsx": "react-jsx",
-    /* Module resolution (Vite friendly) */
     "module": "ESNext",
     "moduleResolution": "bundler",
     "types": ["vite/client", "jest", "@testing-library/jest-dom"],
-    "baseUrl": ".",
+
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@routes/*": ["src/routes/*"],
-      "@store/*": ["src/store/*"],
-      "@constants/*": ["src/constants/*"],
-      "@utils/*": ["src/utils/*"],
-      "@theme/*": ["src/theme/*"],
-      "@i18n/*": ["src/i18n/*"],
-      "@test/*": ["src/test/*"],
-      "@config/*": ["src/config/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@store/*": ["./src/store/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@i18n/*": ["./src/i18n/*"],
+      "@test/*": ["./src/test/*"],
+      "@config/*": ["./src/config/*"]
     },
-    /* Strictness */
+
     "strict": true,
-    /* Performance */
     "skipLibCheck": true,
     "isolatedModules": true,
-    /* Better DX */
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    /* Code quality */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
