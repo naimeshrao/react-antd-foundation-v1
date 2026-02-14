@@ -36,6 +36,7 @@ const TypographyBase = css<TypographyProps>`
     font-weight: ${({ weight }) => (weight ? WeightMap[weight] : 400)};
     margin-bottom: ${({ mb }) => (mb !== undefined ? `${mb}px` : '0')};
     display: ${({ display }) => display || 'block'};
+    margin-top: 0;
   }
 `
 
