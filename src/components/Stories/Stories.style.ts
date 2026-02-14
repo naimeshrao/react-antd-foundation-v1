@@ -10,11 +10,15 @@ export const StorySection = styled(Flex)`
 export const StorySubTitle = styled(H4).attrs({
   weight: 600
 })`
-  width: 100%;
-  text-align: center;
-  background: rgba(69, 73, 98, 0.2);
-  color: white;
-  padding: 8px;
-  margin: 0;
-  border-radius: 4px;
+  &.ant-typography {
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    margin: 0;
+    border-radius: 4px;
+    background: rgb(35, 20, 0);
+    color: #ffd6a0;
+    border: 1px solid #745731;
+    box-shadow: 0 2px 16px rgba(255, 255, 255, 0.16);
+  }
 `
