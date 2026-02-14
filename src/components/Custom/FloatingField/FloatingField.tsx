@@ -8,6 +8,7 @@ type FloatingFieldProps = FormItemProps & {
   name: NamePath
   children: ReactNode
   className?: string
+  mb?: number
 }
 
 const isValueFilled = (value: unknown): boolean => {
@@ -21,6 +22,7 @@ const FloatingField: React.FC<FloatingFieldProps> = ({
   name,
   children,
   className = '',
+  mb,
   ...rest
 }) => {
   const value = Form.useWatch(name)
@@ -30,6 +32,7 @@ const FloatingField: React.FC<FloatingFieldProps> = ({
     <FloatingFieldStyle
       name={name}
       className={`${className} ${filled ? 'is-filled' : ''}`}
+      mb={mb}
       {...rest}
     >
       {children}

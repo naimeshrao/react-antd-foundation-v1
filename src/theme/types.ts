@@ -14,6 +14,7 @@ export interface AppTheme {
     'secondary-500': string
     'secondary-700': string
 
+    'gray-50': string
     'gray-100': string
     'gray-200': string
     'gray-300': string

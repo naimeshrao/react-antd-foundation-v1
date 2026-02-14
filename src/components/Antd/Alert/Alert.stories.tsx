@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Alert } from './Alert'
 import { Flex } from 'antd'
+import { StorySection, StorySubTitle } from '@/components/Stories/Stories.style'
 
 const meta = {
   title: 'Antd/Alert',
@@ -29,7 +30,7 @@ const meta = {
   },
   args: {
     type: 'success',
-    message: 'Alert message',
+    title: 'Alert message',
     description: 'Optional description text.',
     showIcon: true,
     closable: false
@@ -50,10 +51,13 @@ const alertTypes: Array<'success' | 'info' | 'warning' | 'error'> = [
 
 export const AllTypes: Story = {
   render: (args) => (
-    <Flex vertical gap={20}>
-      {alertTypes.map((type) => (
-        <Alert key={type} {...args} type={type} message={`${type} alert`} />
-      ))}
-    </Flex>
+    <StorySection>
+      <StorySubTitle>Alert Types</StorySubTitle>
+      <Flex vertical gap={20}>
+        {alertTypes.map((type) => (
+          <Alert key={type} {...args} type={type} title={`${type} alert`} />
+        ))}
+      </Flex>
+    </StorySection>
   )
 }

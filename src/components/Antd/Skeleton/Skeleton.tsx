@@ -46,10 +46,9 @@ const BaseSkeleton = ({
   )
 }
 
-export const Skeleton = styled(BaseSkeleton)<Props>`
+const StyledSkeleton = styled(BaseSkeleton)<Props>`
   &.ant-skeleton {
     .ant-skeleton-section {
-      // ===== Custom Content Variants =====
       ${({ variant }) =>
         variant &&
         css`
@@ -64,4 +63,18 @@ export const Skeleton = styled(BaseSkeleton)<Props>`
   }
 `
 
-// Usage: <Skeleton variant="h1" paragraph={false} fullWidth />
+type SkeletonComponent = typeof StyledSkeleton & {
+  Avatar: typeof AntSkeleton.Avatar
+  Button: typeof AntSkeleton.Button
+  Input: typeof AntSkeleton.Input
+  Image: typeof AntSkeleton.Image
+  Node: typeof AntSkeleton.Node
+}
+
+export const Skeleton = Object.assign(StyledSkeleton, {
+  Avatar: AntSkeleton.Avatar,
+  Button: AntSkeleton.Button,
+  Input: AntSkeleton.Input,
+  Image: AntSkeleton.Image,
+  Node: AntSkeleton.Node
+}) as SkeletonComponent

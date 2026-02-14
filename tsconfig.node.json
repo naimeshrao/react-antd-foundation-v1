@@ -1,22 +1,16 @@
 {
   "compilerOptions": {
     "ignoreDeprecations": "5.0",
-    /* No build output – used only for type checking */
     "noEmit": true,
-    /* Node environment */
     "target": "ES2022",
     "lib": ["ES2022"],
     "module": "ESNext",
     "types": ["node"],
-    /* Module resolution (Vite friendly) */
     "moduleResolution": "bundler",
-    /* Stability */
     "skipLibCheck": true,
     "strict": true,
-    /* Better compatibility */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    /* Code quality */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true

@@ -1,5 +1,5 @@
+import { Select } from '@/components/Antd'
 import React from 'react'
-import { Select } from 'antd'
 import { useTranslation } from 'react-i18next'
 
 const LanguageSelector: React.FC = () => {
@@ -20,12 +20,7 @@ const LanguageSelector: React.FC = () => {
   }))
 
   return (
-    <Select
-      value={i18n.language}
-      onChange={handleChange}
-      style={{ width: 120 }}
-      options={options}
-    />
+    <Select value={i18n.language} onChange={handleChange} options={options} />
   )
 }
 

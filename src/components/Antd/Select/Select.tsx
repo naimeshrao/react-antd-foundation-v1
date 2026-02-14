@@ -1,3 +1,4 @@
+import { ArwDown } from '@/assets/svgs'
 import {
   InputStyle,
   InputStyleError,
@@ -5,7 +6,6 @@ import {
   InputStyleHover,
   SingleLineInput
 } from '@/theme/styles/sharedStyles'
-import { IconArrowDown } from '@tabler/icons-react'
 import { Select as AntdSelect, SelectProps } from 'antd'
 
 import styled from 'styled-components'
@@ -68,10 +68,7 @@ const SelectStyled = styled(AntdSelect)`
   }
 `
 
-export function Select({
-  suffixIcon = <IconArrowDown />,
-  ...props
-}: SelectProps) {
+export function Select({ suffixIcon = <ArwDown />, ...props }: SelectProps) {
   return <SelectStyled {...props} suffixIcon={suffixIcon} />
 }
 

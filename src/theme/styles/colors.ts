@@ -10,6 +10,7 @@ export const mainLightColors = {
   'secondary-700': '#5c636a',
 
   // Grays
+  'gray-50': '#fcfcfc',
   'gray-100': '#f3f4f6',
   'gray-200': '#e5e7eb',
   'gray-300': '#d1d5db',
@@ -50,6 +51,7 @@ export const mainDarkColors = {
   'secondary-700': '#d1d5db',
 
   // Grays
+  'gray-50': '#121212',
   'gray-100': '#1f2937',
   'gray-200': '#273244',
   'gray-300': '#374151',

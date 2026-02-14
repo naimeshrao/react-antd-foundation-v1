@@ -42,7 +42,7 @@ export const spinAnimation = keyframes`
 // ===== Form Elements =====
 export const InputStyle = css`
   font-size: 14px;
-  background: ${({ theme }) => theme.colors['gray-100']};
+  background: ${({ theme }) => theme.colors['gray-50']};
   border-color: ${({ theme }) => theme.colors['gray-300']};
   color: ${({ theme }) => theme.colors['gray-600']};
 `

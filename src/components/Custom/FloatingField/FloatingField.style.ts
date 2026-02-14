@@ -1,6 +1,10 @@
+import { FormItem } from '@/components/Antd'
 import { ellipsis } from '@/theme/styles/sharedStyles'
-import { Form } from 'antd'
 import styled, { css } from 'styled-components'
+
+interface FloatingFieldStyleProps {
+  mb?: number
+}
 
 const floatLabelActive = css`
   left: 14px;
@@ -12,8 +16,9 @@ const floatLabelActive = css`
   background: white;
 `
 
-export const FloatingFieldStyle = styled(Form.Item)`
+export const FloatingFieldStyle = styled(FormItem)<FloatingFieldStyleProps>`
   position: relative;
+  margin-bottom: ${({ mb = 30 }) => `${mb}px`};
 
   .ant-form-item-label {
     ${ellipsis}
