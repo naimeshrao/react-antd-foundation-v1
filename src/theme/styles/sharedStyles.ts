@@ -63,6 +63,7 @@ export const InputStyleHover = css`
 export const InputStyleFocused = css`
   border-color: ${({ theme }) => theme.colors['primary-500']};
   background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: none;
 `
 
 export const InputStyleError = css`
