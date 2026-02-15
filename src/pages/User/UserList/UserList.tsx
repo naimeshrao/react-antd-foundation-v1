@@ -1,4 +1,4 @@
-import { PageOuter, Table } from '@/components'
+import { PageOuter, Table, TableEmpty, TableSortIcon } from '@/components'
 import type { TableColumnsType, TableProps } from 'antd'
 import { Key, useState } from 'react'
 
@@ -15,15 +15,31 @@ interface DataType {
 const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
-    dataIndex: 'name'
+    dataIndex: 'name',
+    align: 'left',
+    sorter: (a, b) => a.name.localeCompare(b.name),
+    sortIcon: ({ sortOrder }) => <TableSortIcon sortOrder={sortOrder} />,
+    width: 150
   },
   {
     title: 'Age',
-    dataIndex: 'age'
+    dataIndex: 'age',
+    align: 'center',
+    filters: [
+      { text: '32', value: 32 },
+      { text: '42', value: 42 }
+    ],
+    onFilter: (value, record: DataType) => record.age === value,
+    sorter: (a, b) => a.age - b.age,
+    width: 120
   },
   {
     title: 'Address',
-    dataIndex: 'address'
+    dataIndex: 'address',
+    align: 'left',
+    filterMode: 'tree',
+    filterSearch: true,
+    onFilter: (value, record) => record.address.includes(value as string)
   }
 ]
 
@@ -44,6 +60,7 @@ const UserList = () => {
   const rowSelection: TableRowSelection<DataType> = {
     selectedRowKeys,
     onChange: onSelectChange,
+    columnWidth: 60,
     selections: [
       Table.SELECTION_ALL,
       Table.SELECTION_INVERT,
@@ -82,9 +99,21 @@ const UserList = () => {
   return (
     <PageOuter>
       <Table<DataType>
+        // loading
+        locale={{ emptyText: <TableEmpty description="No user found" /> }}
+        tableLayout="fixed"
         rowSelection={rowSelection}
         columns={columns}
         dataSource={dataSource}
+        scroll={{ x: 'max-content', y: '100%' }}
+        pagination={{
+          pageSize: 10,
+          showSizeChanger: true,
+          showTotal: (total) => `Total ${total} items`
+        }}
+        expandable={{
+          expandedRowRender: (record) => <p>{record.address}</p>
+        }}
       />
     </PageOuter>
   )

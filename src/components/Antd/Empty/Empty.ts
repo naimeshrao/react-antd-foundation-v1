@@ -13,3 +13,10 @@ export const Empty = styled(AntdEmpty)`
     ${flex('row', '16px', undefined, 'center')};
   }
 `
+
+export const TableEmpty = styled(Empty)`
+  padding: 24px 0;
+
+  .ant-empty-image {
+  }
+`
