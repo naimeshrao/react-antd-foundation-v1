@@ -64,12 +64,7 @@ const items: CollapseProps['items'] = [
 
 export const Playground: Story = {
   render: (args) => (
-    <Collapse
-      {...args}
-      items={items}
-      defaultActiveKey={['1']}
-      onChange={(key) => console.log('Active:', key)}
-    />
+    <Collapse {...args} items={items} defaultActiveKey={['1']} />
   )
 }
 

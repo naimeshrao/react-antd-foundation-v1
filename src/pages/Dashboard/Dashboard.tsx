@@ -66,11 +66,6 @@ const Dashboard = () => {
     action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
     headers: {
       authorization: 'authorization-text'
-    },
-    onChange(info) {
-      if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList)
-      }
     }
   }
 
@@ -78,7 +73,6 @@ const Dashboard = () => {
   const [openCM, setOpenCM] = useState(false)
 
   const handleCMOk = () => {
-    console.log('Confirmed')
     setOpenCM(false)
   }
 
@@ -176,13 +170,6 @@ const Dashboard = () => {
               <Spin size="default" />
               <Spin size="large" />
             </Flex>
-          </div>
-        </Col>
-
-        <Col xs={24} md={8}>
-          <div>
-            <div>With Tip</div>
-            <Spin tip="Loading..." />
           </div>
         </Col>
 

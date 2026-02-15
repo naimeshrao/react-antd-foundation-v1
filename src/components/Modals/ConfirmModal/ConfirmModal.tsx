@@ -1,6 +1,5 @@
 import { ModalProps } from 'antd'
-import { Button, ConfirmModalWrap } from '../../Antd'
-import Paragraph from 'antd/es/typography/Paragraph'
+import { Button, ConfirmModalWrap, Paragraph } from '../../Antd'
 import { ReactNode } from 'react'
 
 interface ConfirmModalProps extends Omit<ModalProps, 'footer'> {

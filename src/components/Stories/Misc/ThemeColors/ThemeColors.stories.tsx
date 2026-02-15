@@ -3,7 +3,8 @@ import { Row, Col, Flex } from 'antd'
 import styled from 'styled-components'
 import { mainDarkColors, mainLightColors } from '@/theme/styles/colors'
 import { StorySubTitle } from '../../Stories.style'
-import { TextL, TextM } from '@/components/Utilities'
+import { TextM } from '@/components/Utilities'
+import { Paragraph } from '@/components/Antd'
 
 const meta = {
   title: 'Design System/Colors',
@@ -50,9 +51,7 @@ const renderColors = (colors: Record<string, string>) =>
       <ColorPreview color={value} />
       <ColorInfo>
         <Flex gap={12} justify="space-between">
-          <TextL weight={600} color="muted">
-            {name}
-          </TextL>
+          <Paragraph copyable>{name}</Paragraph>
           <TextM color="muted">{value}</TextM>
         </Flex>
       </ColorInfo>

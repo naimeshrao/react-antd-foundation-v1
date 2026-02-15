@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import * as Icons from '@/assets/svgs'
 import { StorySection, StorySubTitle } from '@/components/Stories/Stories.style'
 import { flex } from '@/theme/styles/sharedStyles'
-import { H4 } from '@/components/Utilities'
+import Paragraph from 'antd/es/typography/Paragraph'
 
 const meta = {
   title: 'Design System/Icons',
@@ -19,25 +19,32 @@ type Story = StoryObj
 
 const IconCard = styled.div`
   ${flex('column', '12px', 'center', 'space-between')};
-  border: 1px solid gray;
+  border: 1px solid ${({ theme }) => theme.colors['gray-300']};
   border-radius: 8px;
   padding: 16px;
   text-align: center;
-  background: white;
-  min-height: 80px;
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
 
   svg {
-    max-width: 48px;
-    max-height: 48px;
+    max-width: 100%;
+    max-height: 100%;
     width: 100%;
     height: auto;
   }
 `
 
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px;
+const SIconWrapper = styled.div`
+  ${flex('row', '8px', 'center', 'center')};
+  height: 40px;
+  width: 100%;
+`
+
+const Name = styled(Paragraph)`
+  &.ant-typography {
+    margin: 0;
+    font-weight: 500;
+  }
 `
 
 export const AllIcons: Story = {
@@ -45,22 +52,22 @@ export const AllIcons: Story = {
     const entries = Object.entries(Icons)
 
     return (
-      <Container>
-        <StorySection>
-          <StorySubTitle>Custom Icon Library</StorySubTitle>
+      <StorySection>
+        <StorySubTitle>Custom Icon Library</StorySubTitle>
 
-          <Row gutter={[16, 16]}>
-            {entries.map(([name, IconComponent]) => (
-              <Col xs={12} sm={8} md={6} lg={4} key={name}>
-                <IconCard>
+        <Row gutter={[16, 16]}>
+          {entries.map(([name, IconComponent]) => (
+            <Col xs={12} sm={8} md={4} lg={3} key={name}>
+              <IconCard>
+                <SIconWrapper>
                   <IconComponent />
-                  <H4>{name}</H4>
-                </IconCard>
-              </Col>
-            ))}
-          </Row>
-        </StorySection>
-      </Container>
+                </SIconWrapper>
+                <Name copyable>{name}</Name>
+              </IconCard>
+            </Col>
+          ))}
+        </Row>
+      </StorySection>
     )
   }
 }
