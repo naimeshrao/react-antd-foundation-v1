@@ -76,7 +76,6 @@ export const InputStyleDisabled = css`
   border-color: ${({ theme }) => theme.colors['gray-300']};
   background-color: ${({ theme }) => theme.colors['gray-100']};
   color: ${({ theme }) => theme.colors['gray-400']};
-  background-color: lightcyan;
 `
 
 // ===== Div Button =====

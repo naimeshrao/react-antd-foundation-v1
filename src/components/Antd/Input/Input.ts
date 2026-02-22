@@ -116,10 +116,16 @@ export const Input = styled(AntdInput)`
 `
 
 export const TextArea = styled(AntdInput.TextArea)<TextAreaProps>`
-  ${baseInputStyles}
+  ${baseInputStyles};
 
-  &.ant-input {
+  &.ant-input-textarea-affix-wrapper {
+    height: auto;
+  }
+
+  &.ant-input,
+  &.ant-input-textarea-affix-wrapper textarea.ant-input {
     resize: ${({ resize = 'none' }) => resize};
+    padding-block: 10px;
 
     ${({ rows }) =>
       rows &&

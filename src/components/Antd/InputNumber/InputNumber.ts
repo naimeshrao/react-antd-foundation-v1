@@ -15,15 +15,17 @@ export const InputNumber = styled(AntdInputNumber)`
     ${InputStyle};
     ${SingleLineInput};
 
+    .ant-input-number-input {
+    }
+
+    // Hover state
     &:not(.ant-input-number-disabled):hover {
       ${InputStyleHover};
     }
 
-    &.ant-input-number-focused {
+    // Focused state
+    &&.ant-input-number-focused:not(.ant-input-number-status-error) {
       ${InputStyleFocused};
-    }
-
-    .ant-input-number-input {
     }
 
     // Disabled State
