@@ -1,6 +1,14 @@
-import { PageOuter, Table, TableEmpty, TableSortIcon, Text } from '@/components'
+import {
+  PageOuter,
+  Pagination,
+  Table,
+  TableEmpty,
+  TableOuter,
+  TableSortIcon,
+  Text
+} from '@/components'
 import type { TableColumnsType, TableProps } from 'antd'
-import { Key, useState } from 'react'
+import { Key, useMemo, useState } from 'react'
 
 type TableRowSelection<T extends object = object> =
   TableProps<T>['rowSelection']
@@ -100,25 +108,44 @@ const UserList = () => {
     ]
   }
 
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize, setPageSize] = useState(20)
+
+  const paginatedData = useMemo(() => {
+    const start = (currentPage - 1) * pageSize
+    return dataSource.slice(start, start + pageSize)
+  }, [dataSource, currentPage, pageSize])
+
   return (
-    <PageOuter>
-      <Table<DataType>
-        // loading
-        locale={{ emptyText: <TableEmpty description="No user found" /> }}
-        tableLayout="fixed"
-        rowSelection={rowSelection}
-        columns={columns}
-        dataSource={dataSource}
-        scroll={{ y: '100%' }}
-        pagination={{
-          pageSize: 20,
-          showSizeChanger: true,
-          showTotal: (total) => `Total ${total} items`
-        }}
-        expandable={{
-          expandedRowRender: (record) => <p>{record.address}</p>
-        }}
-      />
+    <PageOuter heading="Users">
+      <TableOuter>
+        <Table<DataType>
+          // loading
+          locale={{ emptyText: <TableEmpty description="No user found" /> }}
+          tableLayout="fixed"
+          rowSelection={rowSelection}
+          columns={columns}
+          dataSource={paginatedData}
+          scroll={{ y: '100%' }}
+          pagination={false}
+          expandable={{
+            expandedRowRender: (record) => <p>{record.address}</p>
+          }}
+          sticky
+        />
+
+        <Pagination
+          current={currentPage}
+          pageSize={pageSize}
+          total={dataSource.length}
+          showSizeChanger
+          onChange={(page, size) => {
+            setCurrentPage(page)
+            setPageSize(size)
+          }}
+        />
+      </TableOuter>
     </PageOuter>
   )
 }

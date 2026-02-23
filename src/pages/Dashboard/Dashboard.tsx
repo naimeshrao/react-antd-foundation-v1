@@ -1,18 +1,14 @@
 import {
   Button,
   Card,
-  ConfirmModal,
   Input,
-  Modal,
   PageOuter,
   Spin,
   Statistic,
-  Table,
-  Upload
+  Table
 } from '@/components'
-import { IconArrowDown, IconArrowUp, IconUpload } from '@tabler/icons-react'
-import { Col, Flex, Row, UploadProps } from 'antd'
-import { useState } from 'react'
+import { IconArrowDown, IconArrowUp } from '@tabler/icons-react'
+import { Col, Flex, Row } from 'antd'
 import { useTranslation } from 'react-i18next'
 
 const Dashboard = () => {
@@ -51,59 +47,14 @@ const Dashboard = () => {
     }
   ]
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const handleOk = () => {
-    setIsModalOpen(false)
-  }
-
-  const handleCancel = () => {
-    setIsModalOpen(false)
-  }
-
-  const props: UploadProps = {
-    name: 'file',
-    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
-    headers: {
-      authorization: 'authorization-text'
-    }
-  }
-
-  // Confirm Modal
-  const [openCM, setOpenCM] = useState(false)
-
-  const handleCMOk = () => {
-    setOpenCM(false)
-  }
-
-  const handleCMCancel = () => {
-    setOpenCM(false)
-  }
-
   return (
     <PageOuter heading="Dashboard">
       <p>{t('Welcome')}</p>
 
       <Table dataSource={dataSource} columns={columns} />
-      <br />
-
-      <Modal
-        title="Basic Modal"
-        closable={{ 'aria-label': 'Custom Close Button' }}
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
-      <br />
-      <Upload {...props}>
-        <Button icon={<IconUpload />}>Click to Upload</Button>
-      </Upload>
 
       <br />
+
       <Row gutter={16}>
         <Col span={12}>
           <Card variant="borderless">
@@ -140,19 +91,6 @@ const Dashboard = () => {
           <Input />
         </Col>
       </Row>
-
-      <Button onClick={() => setOpenCM(true)}>Open Modal</Button>
-
-      <ConfirmModal
-        open={openCM}
-        onOk={handleCMOk}
-        onCancel={() => handleCMCancel()}
-        title="Delete?"
-        okText="Delete"
-        cancelText="Cancel"
-      >
-        Are you sure you want to delete?
-      </ConfirmModal>
 
       <Row gutter={[24, 24]}>
         <Col xs={24} md={8}>
