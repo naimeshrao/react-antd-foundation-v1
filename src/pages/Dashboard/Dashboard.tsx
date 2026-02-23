@@ -1,60 +1,13 @@
-import {
-  Button,
-  Card,
-  Input,
-  PageOuter,
-  Spin,
-  Statistic,
-  Table
-} from '@/components'
+import { Card, PageOuter, Statistic } from '@/components'
 import { IconArrowDown, IconArrowUp } from '@tabler/icons-react'
-import { Col, Flex, Row } from 'antd'
+import { Col, Row } from 'antd'
 import { useTranslation } from 'react-i18next'
 
 const Dashboard = () => {
   const { t } = useTranslation('account')
 
-  const dataSource = [
-    {
-      key: '1',
-      name: 'Mike',
-      age: 32,
-      address: '10 Downing Street'
-    },
-    {
-      key: '2',
-      name: 'John',
-      age: 42,
-      address: '10 Downing Street'
-    }
-  ]
-
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name'
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age'
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address'
-    }
-  ]
-
   return (
-    <PageOuter heading="Dashboard">
-      <p>{t('Welcome')}</p>
-
-      <Table dataSource={dataSource} columns={columns} />
-
-      <br />
-
+    <PageOuter heading={t('Welcome')}>
       <Row gutter={16}>
         <Col span={12}>
           <Card variant="borderless">
@@ -77,18 +30,6 @@ const Dashboard = () => {
               suffix="%"
             />
           </Card>
-        </Col>
-      </Row>
-      <br />
-      <Row gutter={[24, 16]}>
-        <Col xs={24} lg={{ flex: 'none' }}>
-          Auto Flex Col LG
-        </Col>
-        <Col xs={24} md={24} lg="auto" flex="0 0 auto">
-          <Button>Click Me</Button>
-        </Col>
-        <Col xs={24} md={24} lg={24} flex="1">
-          <Input />
         </Col>
       </Row>
     </PageOuter>

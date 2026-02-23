@@ -15,9 +15,9 @@ export default meta
 type Story = StoryObj
 
 const Box = styled.div`
-  background: #1677ff;
-  color: #fff;
-  padding: 12px 0;
+  background: lightblue;
+  color: black;
+  padding: 12px 8px;
   text-align: center;
   border-radius: 6px;
 `
@@ -58,13 +58,13 @@ export const AllVersions: Story = {
           </Row>
 
           <Row gutter={16}>
-            <Col flex="100px">
-              <Box>100px</Box>
+            <Col xs={24} lg={{ flex: 'none' }}>
+              <Box>F-None asasasa sasas</Box>
             </Col>
-            <Col flex="auto">
-              <Box>Auto</Box>
+            <Col xs={24} md={24} lg="auto" flex="0 0 auto">
+              <Box>F-Auto asasasa sasas</Box>
             </Col>
-            <Col flex={1}>
+            <Col xs={24} md={24} lg={24} flex={1}>
               <Box>Flex 1</Box>
             </Col>
           </Row>
