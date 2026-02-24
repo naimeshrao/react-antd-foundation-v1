@@ -1,6 +1,7 @@
 import { ArwDown } from '@/assets/svgs'
 import {
   InputStyle,
+  InputStyleDisabled,
   InputStyleError,
   InputStyleFocused,
   InputStyleHover,
@@ -15,56 +16,86 @@ const SelectStyled = styled(AntdSelect)`
 
   // ===== Base Select =====
   &.ant-select {
-    ${InputStyle};
-    ${SingleLineInput};
-    padding: 0 14px;
+    // ===== Outlined Variant =====
+    &.ant-select-outlined {
+      ${InputStyle};
+      ${SingleLineInput};
+      padding: 0 14px;
 
-    &:not(.ant-select-disabled):hover {
-      ${InputStyleHover};
-    }
+      .ant-select-content {
+        .ant-select-input {
+        }
 
-    &.ant-select-focused,
-    &.ant-select-open {
-      ${InputStyleFocused};
-    }
+        .ant-select-placeholder {
+        }
 
-    .ant-select-content {
-      .ant-select-input {
+        &.ant-select-content-has-value {
+        }
       }
 
-      .ant-select-placeholder {
+      .ant-select-suffix {
+        .anticon {
+          pointer-events: none;
+        }
       }
 
-      &.ant-select-content-has-value {
+      // Hover state
+      &:not(.ant-select-disabled):hover {
+        ${InputStyleHover};
+      }
+
+      // Focused / Open State
+      &&.ant-select-focused:not(.ant-select-status-error),
+      &&.ant-select-open:not(.ant-select-status-error) {
+        ${InputStyleFocused};
+      }
+
+      // Disabled State
+      &.ant-select-disabled {
+        ${InputStyleDisabled};
+      }
+
+      // Error State
+      &.ant-select-status-error:not(.ant-select-disabled) {
+        ${InputStyleError};
+
+        &.ant-select-focused,
+        &.ant-select-open {
+          ${InputStyleError};
+        }
       }
     }
-
-    .ant-select-suffix {
-      .anticon {
-        pointer-events: none;
-      }
-    }
-
-    // Focused State
-    &.ant-select-focused {
-    }
-
-    // Disabled State
-    &.ant-select-disabled {
-    }
-
-    // Error State
-    &.ant-select-status-error:not(.ant-select-disabled) {
-      ${InputStyleError};
-    }
-  }
-
-  // ===== Outlined Variant =====
-  &.ant-select-outlined {
   }
 
   // ===== Multiple Select =====
   &.ant-select-multiple {
+    min-height: 50px;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    .ant-select-content {
+      .ant-select-content-item {
+        .ant-select-placeholder {
+          line-height: 38px;
+        }
+
+        & .ant-select-selection-item {
+          margin-block-start: 2px;
+          margin-block-end: 2px;
+          margin-inline-end: 4px;
+          height: 34px;
+          line-height: 32px;
+
+          &-content {
+            margin-inline-end: 6px;
+          }
+
+          &-remove {
+          }
+        }
+      }
+    }
   }
 `
 

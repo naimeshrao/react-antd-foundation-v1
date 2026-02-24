@@ -5,11 +5,11 @@ export const ROUTES = {
   },
 
   APP: {
-    DASHBOARD: '/dashboard'
+    DASHBOARD: '/',
+    USERLIST: '/users'
   },
 
   COMMON: {
-    HOME: '/',
     NOT_FOUND: '/404'
   }
 } as const

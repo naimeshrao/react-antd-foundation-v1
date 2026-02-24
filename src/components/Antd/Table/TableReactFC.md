@@ -29,16 +29,6 @@ export const TruncateCell = styled.div`
   text-overflow: ellipsis;
 `
 
-// Optional: Table Column Filter wrapper
-export const TableColumnFilter = styled(Card)`
-  width: 300px;
-`
-
-export const TCFFooter = styled(Flex)`
-  padding: 16px;
-  gap: 8px;
-`
-
 // Generic Table Component
 type TableStyledProps<T> = TableProps<T>
 

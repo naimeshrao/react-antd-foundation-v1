@@ -5,6 +5,7 @@ import { getAntdTheme } from './antdTokens'
 import { ThemeMode, AppTheme } from './types'
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from '@/constants/storage'
 import { getTheme } from './appTheme'
+import { LoaderSVG } from '@/assets/svgs'
 
 interface ThemeContextProps {
   mode: ThemeMode
@@ -48,10 +49,17 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
 
   const theme: AppTheme = getTheme(mode)
 
+  const spinIndicator = <LoaderSVG />
+
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme, setTheme: setMode }}>
       <ThemeProvider theme={theme}>
-        <ConfigProvider theme={getAntdTheme(mode)}>{children}</ConfigProvider>
+        <ConfigProvider
+          theme={getAntdTheme(mode)}
+          spin={{ indicator: spinIndicator }}
+        >
+          {children}
+        </ConfigProvider>
       </ThemeProvider>
     </ThemeContext.Provider>
   )

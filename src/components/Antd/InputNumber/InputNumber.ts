@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleDisabled,
   InputStyleError,
   InputStyleFocused,
   InputStyleHover,
@@ -9,23 +10,35 @@ import { InputNumber as AntdInputNumber } from 'antd'
 import styled from 'styled-components'
 
 export const InputNumber = styled(AntdInputNumber)`
-  width: 100%;
-  ${InputStyle};
-  ${SingleLineInput};
+  &.ant-input-number-outlined {
+    width: 100%;
+    ${InputStyle};
+    ${SingleLineInput};
 
-  &:hover {
-    ${InputStyleHover};
-  }
+    .ant-input-number-input {
+    }
 
-  &.ant-input-number-focused {
-    ${InputStyleFocused};
-  }
+    // Hover state
+    &:not(.ant-input-number-disabled):hover {
+      ${InputStyleHover};
+    }
 
-  .ant-input-number-input {
-  }
+    // Focused state
+    &&.ant-input-number-focused:not(.ant-input-number-status-error) {
+      ${InputStyleFocused};
+    }
 
-  // Error State
-  &.ant-input-number-status-error:not(.ant-number-disabled) {
-    ${InputStyleError};
+    // Disabled State
+    &.ant-input-number-disabled {
+      ${InputStyleDisabled};
+      &:hover {
+        ${InputStyleDisabled};
+      }
+    }
+
+    // Error State
+    &.ant-input-number-status-error:not(.ant-input-number-disabled) {
+      ${InputStyleError};
+    }
   }
 `

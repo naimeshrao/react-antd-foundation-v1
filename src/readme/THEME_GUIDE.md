@@ -22,3 +22,11 @@ ${({ theme }) => theme.borderRadius.md};
 ${({ theme }) => theme.shadows.lg};
 ${({ theme }) => theme.transitions.md};
 ```
+
+## Navigation
+
+```tsx
+import { useNavigate } from 'react-router-dom'
+const navigate = useNavigate()
+<Button onClick={() => navigate(ROUTES.APP.DASHBOARD)} />
+```

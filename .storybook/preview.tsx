@@ -1,18 +1,17 @@
 import type { Preview, Decorator } from '@storybook/react-vite'
-import React from 'react'
+import React, { ReactElement } from 'react'
+import './preview.css'
 import { ThemeProvider } from 'styled-components'
 import { ConfigProvider } from 'antd'
 import { getTheme } from '../src/theme/appTheme'
 import { getAntdTheme } from '../src/theme/antdTokens'
-import './preview.css'
+import { LoaderSVG } from '@/assets/svgs'
 
-/**
- * Global decorator to provide theme context to all stories
- */
+const spinIndicator = (<LoaderSVG />) as ReactElement<HTMLElement>
+
+// Global decorator to provide theme context to all stories
 const withThemeProvider: Decorator = (Story, context) => {
-  // Get theme mode from global types (light or dark)
   const themeMode = context.globals.theme || 'light'
-
   const appTheme = getTheme(themeMode as 'light' | 'dark')
   const antdTheme = getAntdTheme(themeMode as 'light' | 'dark')
 
@@ -21,7 +20,12 @@ const withThemeProvider: Decorator = (Story, context) => {
     { theme: appTheme },
     React.createElement(
       ConfigProvider,
-      { theme: antdTheme },
+      {
+        theme: antdTheme,
+        spin: {
+          indicator: spinIndicator
+        }
+      },
       React.createElement(
         'div',
         {
@@ -56,6 +60,11 @@ const preview: Preview = {
     }
   },
   parameters: {
+    options: {
+      storySort: {
+        order: ['Design System', 'Antd']
+      }
+    },
     viewport: {
       defaultViewport: 'desktop'
     },

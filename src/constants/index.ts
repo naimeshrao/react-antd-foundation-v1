@@ -1,5 +1,5 @@
 export * from './images'
-export * from './menu'
+export * from './menuItems'
 export * from './sorting'
 export * from './periods'
 export * from './messages'

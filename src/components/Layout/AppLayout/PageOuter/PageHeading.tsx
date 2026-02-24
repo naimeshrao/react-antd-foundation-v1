@@ -1,5 +1,5 @@
-import { H2 } from '@/components/Utilities'
 import { ReactNode } from 'react'
+import { PageHeadingWrap } from './PageOuter.style'
 
 interface PageHeadingProps {
   heading: ReactNode
@@ -7,9 +7,9 @@ interface PageHeadingProps {
 
 export function PageHeading({ heading }: PageHeadingProps) {
   return (
-    <H2 weight={700} color="dark">
+    <PageHeadingWrap weight={700} color="dark">
       {heading}
-    </H2>
+    </PageHeadingWrap>
   )
 }
 

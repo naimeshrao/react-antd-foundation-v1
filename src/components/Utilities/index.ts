@@ -14,3 +14,5 @@ export {
   TextS,
   TextXS
 } from './Typography/Typography'
+export { default as RouteScrollHandler } from './ScrollToTop/RouteScrollHandler'
+export { default as ScrollTopButton } from './ScrollToTop/ScrollTopButton'

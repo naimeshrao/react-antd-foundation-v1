@@ -69,12 +69,13 @@ export const InputStyleFocused = css`
 export const InputStyleError = css`
   border-color: ${({ theme }) => theme.colors['error-dark']};
   background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: none;
 `
 
 export const InputStyleDisabled = css`
   border-color: ${({ theme }) => theme.colors['gray-300']};
-  background-color: ${({ theme }) => theme.colors['gray-300']};
-  color: ${({ theme }) => theme.colors['gray-600']};
+  background-color: ${({ theme }) => theme.colors['gray-100']};
+  color: ${({ theme }) => theme.colors['gray-400']};
 `
 
 // ===== Div Button =====

@@ -6,6 +6,7 @@ import Login from '@/pages/Auth/Login/Login'
 import Dashboard from '@/pages/Dashboard/Dashboard'
 import PageNotFound from '@/pages/Fallback/PageNotFound/PageNotFound'
 import { ProtectedLayout } from './ProtectedRoute'
+import UserList from '@/pages/User/UserList/UserList'
 
 export const router = createBrowserRouter([
   // Public Routes
@@ -23,7 +24,10 @@ export const router = createBrowserRouter([
     children: [
       {
         element: <AppLayout />,
-        children: [{ path: ROUTES.COMMON.HOME, element: <Dashboard /> }]
+        children: [
+          { path: ROUTES.APP.DASHBOARD, element: <Dashboard /> },
+          { path: ROUTES.APP.USERLIST, element: <UserList /> }
+        ]
       },
 
       // Fallback Pages (Errors)

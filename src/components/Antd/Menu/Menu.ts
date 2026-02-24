@@ -21,12 +21,12 @@ export const Menu = styled(AntdMenu)`
       font-size: 14px;
 
       &:hover {
-        background-color: gray;
+        background-color: ${({ theme }) => theme.colors['gray-100']};
       }
 
       &.ant-menu-item-selected {
-        background-color: blue;
-        color: white;
+        background-color: ${({ theme }) => theme.colors['primary-500']};
+        color: ${({ theme }) => theme.colors.white};
       }
 
       .ant-menu-title-content {

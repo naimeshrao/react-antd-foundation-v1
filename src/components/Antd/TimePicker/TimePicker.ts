@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleDisabled,
   InputStyleError,
   InputStyleFocused,
   InputStyleHover,
@@ -9,20 +10,30 @@ import { TimePicker as AntdTimePicker } from 'antd'
 import styled from 'styled-components'
 
 export const TimePicker = styled(AntdTimePicker)`
-  width: 100%;
-  ${InputStyle};
-  ${SingleLineInput};
+  &.ant-picker-outlined {
+    width: 100%;
+    ${InputStyle};
+    ${SingleLineInput};
 
-  &:hover {
-    ${InputStyleHover};
-  }
+    &:hover {
+      ${InputStyleHover};
+    }
 
-  &.ant-picker-focused {
-    ${InputStyleFocused};
-  }
+    &.ant-picker-focused {
+      ${InputStyleFocused};
+    }
 
-  // Error State
-  &.ant-picker-status-error:not(.ant-picker-disabled) {
-    ${InputStyleError};
+    // Disabled State
+    &.ant-picker-disabled {
+      ${InputStyleDisabled};
+      &:hover {
+        ${InputStyleDisabled};
+      }
+    }
+
+    // Error State
+    &.ant-picker-status-error:not(.ant-picker-disabled) {
+      ${InputStyleError};
+    }
   }
 `

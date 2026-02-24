@@ -69,7 +69,7 @@ export const AllVersions: Story = {
               name="name"
               rules={[{ required: true, message: 'Full name is required' }]}
             >
-              <Input />
+              <Input allowClear />
             </FloatingField>
 
             <FloatingField
@@ -77,7 +77,7 @@ export const AllVersions: Story = {
               name="password"
               rules={[{ required: true, message: 'Password is required' }]}
             >
-              <Password />
+              <Password allowClear />
             </FloatingField>
 
             <FloatingField
@@ -85,7 +85,7 @@ export const AllVersions: Story = {
               name="bio"
               rules={[{ required: true, message: 'Bio is required' }]}
             >
-              <TextArea rows={3} />
+              <TextArea allowClear rows={3} />
             </FloatingField>
 
             <FloatingField
@@ -107,6 +107,7 @@ export const AllVersions: Story = {
                   { label: 'User', value: 'user' },
                   { label: 'Manager', value: 'manager' }
                 ]}
+                allowClear
               />
             </FloatingField>
 
@@ -115,7 +116,7 @@ export const AllVersions: Story = {
               name="dob"
               rules={[{ required: true, message: 'Date of birth is required' }]}
             >
-              <DatePicker />
+              <DatePicker allowClear />
             </FloatingField>
 
             <FloatingField
@@ -123,7 +124,7 @@ export const AllVersions: Story = {
               name="time"
               rules={[{ required: true, message: 'Meeting time is required' }]}
             >
-              <TimePicker />
+              <TimePicker allowClear />
             </FloatingField>
 
             <FloatingField
@@ -131,7 +132,7 @@ export const AllVersions: Story = {
               name="range"
               rules={[{ required: true, message: 'Duration is required' }]}
             >
-              <RangePicker />
+              <RangePicker allowClear />
             </FloatingField>
 
             <Flex gap={12}>

@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Row, Col } from 'antd'
+import { Row, Col, Flex } from 'antd'
 import type { ModalProps } from 'antd'
 import { useState } from 'react'
 import { Modal } from './Modal'
 import { Button } from '../Button/Button'
 import { StorySection, StorySubTitle } from '@/components/Stories/Stories.style'
+import { ConfirmModal } from '@/components/Modals'
 
 const meta = {
   title: 'Antd/Modal',
@@ -55,51 +56,45 @@ export const Playground: Story = {
 export const AllVersions: Story = {
   render: () => {
     const [open1, setOpen1] = useState(false)
-    const [open2, setOpen2] = useState(false)
     const [open3, setOpen3] = useState(false)
+
+    // Confirm Modal
+    const [openCM, setOpenCM] = useState(false)
+    const handleCMOk = () => {
+      setOpenCM(false)
+    }
+    const handleCMCancel = () => {
+      setOpenCM(false)
+    }
 
     return (
       <Row gutter={[24, 24]}>
         <Col xs={24} md={12}>
           <StorySection>
             <StorySubTitle>Default</StorySubTitle>
-            <Button type="primary" onClick={() => setOpen1(true)}>
-              Open Modal
-            </Button>
+            <Flex gap={16}>
+              <Button type="primary" onClick={() => setOpen1(true)}>
+                Default Modal
+              </Button>
+              <Button onClick={() => setOpen3(true)}>
+                Custom Modal Footer
+              </Button>
+            </Flex>
+
             <Modal
               open={open1}
               onCancel={() => setOpen1(false)}
               onOk={() => setOpen1(false)}
               title="Default Modal"
-            >
-              Basic modal content.
-            </Modal>
-          </StorySection>
-        </Col>
-
-        <Col xs={24} md={12}>
-          <StorySection>
-            <StorySubTitle>Centered</StorySubTitle>
-            <Button onClick={() => setOpen2(true)}>Open Centered</Button>
-            <Modal
               centered
-              open={open2}
-              onCancel={() => setOpen2(false)}
-              onOk={() => setOpen2(false)}
-              title="Centered Modal"
+              closable={false}
             >
-              This modal is vertically centered.
+              Basic Modal
             </Modal>
-          </StorySection>
-        </Col>
-
-        <Col xs={24} md={12}>
-          <StorySection>
-            <StorySubTitle>Custom Footer</StorySubTitle>
-            <Button onClick={() => setOpen3(true)}>Open Custom</Button>
             <Modal
               open={open3}
               onCancel={() => setOpen3(false)}
+              centered
               footer={[
                 <Button key="cancel" onClick={() => setOpen3(false)}>
                   Cancel
@@ -118,17 +113,20 @@ export const AllVersions: Story = {
         <Col xs={24} md={12}>
           <StorySection>
             <StorySubTitle>Confirm Modal</StorySubTitle>
-            <Button
-              danger
-              onClick={() =>
-                Modal.confirm({
-                  title: 'Are you sure?',
-                  content: 'This action cannot be undone.'
-                })
-              }
+            <div>
+              <Button onClick={() => setOpenCM(true)}>Confirm Delete</Button>
+            </div>
+
+            <ConfirmModal
+              open={openCM}
+              onOk={handleCMOk}
+              onCancel={() => handleCMCancel()}
+              title="Delete?"
+              okText="Delete"
+              cancelText="Cancel"
             >
-              Show Confirm
-            </Button>
+              Are you sure you want to delete?
+            </ConfirmModal>
           </StorySection>
         </Col>
       </Row>

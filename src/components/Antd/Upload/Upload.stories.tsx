@@ -6,6 +6,7 @@ import { StorySection, StorySubTitle } from '@/components/Stories/Stories.style'
 import { useState } from 'react'
 import { Upload } from './Upload'
 import { Button } from '../Button/Button'
+import { IconUpload } from '@tabler/icons-react'
 
 const { Dragger } = Upload
 
@@ -53,7 +54,7 @@ export const AllVersions: Story = {
           <StorySection>
             <StorySubTitle>Basic Upload</StorySubTitle>
             <Upload customRequest={dummyRequest}>
-              <Button icon={<UploadOutlined />}>Click to Upload</Button>
+              <Button icon={<IconUpload />}>Click to Upload</Button>
             </Upload>
           </StorySection>
         </Col>
@@ -62,7 +63,7 @@ export const AllVersions: Story = {
           <StorySection>
             <StorySubTitle>Multiple Files</StorySubTitle>
             <Upload multiple customRequest={dummyRequest}>
-              <Button icon={<UploadOutlined />}>Upload Multiple</Button>
+              <Button icon={<IconUpload />}>Upload Multiple</Button>
             </Upload>
           </StorySection>
         </Col>
@@ -83,7 +84,7 @@ export const AllVersions: Story = {
           <StorySection>
             <StorySubTitle>Picture Upload</StorySubTitle>
             <Upload listType="picture" customRequest={dummyRequest}>
-              <Button icon={<UploadOutlined />}>Upload Image</Button>
+              <Button icon={<IconUpload />}>Upload Image</Button>
             </Upload>
           </StorySection>
         </Col>
@@ -96,7 +97,7 @@ export const AllVersions: Story = {
               onChange={({ fileList }) => setFileList(fileList)}
               customRequest={dummyRequest}
             >
-              <Button icon={<UploadOutlined />}>Controlled Upload</Button>
+              <Button icon={<IconUpload />}>Controlled Upload</Button>
             </Upload>
           </StorySection>
         </Col>
